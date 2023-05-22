@@ -1,0 +1,1049 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WebStoreDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ShoppingCart">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CookieID" Type="float" />
+          <Property Name="ProductID_FK" Type="int" />
+          <Property Name="ProductCount" Type="int" />
+          <Property Name="RegisterDate" Type="date" />
+          <Property Name="PaymentStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="SiteSetting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" />
+          <Property Name="SiteDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="MetaTags" Type="nvarchar" MaxLength="250" />
+          <Property Name="DisplayCommentAfterConfirm" Type="bit" />
+          <Property Name="DisableComment" Type="bit" />
+          <Property Name="MaxUploadSize" Type="int" />
+          <Property Name="ValidFormat" Type="nvarchar" MaxLength="250" />
+          <Property Name="DisplayProductCount" Type="int" />
+          <Property Name="Tax" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ValueAddedPercentage" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tbl_Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="ParentID" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_Comment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID_FK" Type="int" />
+          <Property Name="CommentID_FK" Type="int" />
+          <Property Name="UserFullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserEmail" Type="varchar" MaxLength="150" />
+          <Property Name="Content" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IpAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegisterDate" Type="date" />
+          <Property Name="Comment_Confirm" Type="bit" />
+          <Property Name="Comment_IsRead" Type="bit" />
+          <Property Name="Comment_Like" Type="int" />
+          <Property Name="Comment_Dislike" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_Guaranty">
+          <Key>
+            <PropertyRef Name="GuarantyID" />
+          </Key>
+          <Property Name="GuarantyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Tbl_Menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Link" Type="nvarchar" MaxLength="200" />
+          <Property Name="Sort" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID_FK" Type="int" Nullable="false" />
+          <Property Name="Product_FK" Type="int" Nullable="false" />
+          <Property Name="OrderCount" Type="int" />
+          <Property Name="Date" Type="date" />
+          <Property Name="OrderStatus" Type="int" />
+          <Property Name="PostID_FK" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_Pictures">
+          <Key>
+            <PropertyRef Name="PicId" />
+          </Key>
+          <Property Name="PicId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PicName" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Tbl_Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Tbl_Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductTitle" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="ProductEnglishTitle" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AvailaibleCout" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RegisterDate" Type="date" />
+          <Property Name="Product_Off" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Visit" Type="float" />
+          <Property Name="Product_Like" Type="float" />
+          <Property Name="Product_Dislike" Type="float" />
+          <Property Name="UserRegisterID_FK" Type="int" Nullable="false" />
+          <Property Name="GurantyID_FK" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_ProductImage">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PicID_FK" Type="int" />
+          <Property Name="ProductID_FK" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_Prouducts_Categories">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CatID_FK" Type="int" />
+          <Property Name="ProductID_FK" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_SliderImage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageName" Type="nvarchar" MaxLength="200" />
+          <Property Name="ImageCaption" Type="nvarchar" MaxLength="100" />
+          <Property Name="ImageText" Type="nvarchar" MaxLength="150" />
+          <Property Name="Link" Type="varchar" MaxLength="200" />
+          <Property Name="Sort" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Birthdate" Type="date" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="TellPhone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Province" Type="nvarchar" MaxLength="80" />
+          <Property Name="City" Type="nvarchar" MaxLength="80" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserPic" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegisterDate" Type="datetime" />
+          <Property Name="Gender" Type="bit" />
+          <Property Name="AccessLevelName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_ShoppingCart_Tbl_Product">
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
+          <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ShoppingCart">
+              <PropertyRef Name="ProductID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Category_Products_Tbl_Category">
+          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="0..1" />
+          <End Role="Tbl_Prouducts_Categories" Type="Self.Tbl_Prouducts_Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Tbl_Prouducts_Categories">
+              <PropertyRef Name="CatID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Category_Products_Tbl_Product">
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
+          <End Role="Tbl_Prouducts_Categories" Type="Self.Tbl_Prouducts_Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Tbl_Prouducts_Categories">
+              <PropertyRef Name="ProductID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Category_Tbl_Category">
+          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="0..1" />
+          <End Role="Tbl_Category1" Type="Self.Tbl_Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Tbl_Category1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Comment_Tbl_Comment">
+          <End Role="Tbl_Comment" Type="Self.Tbl_Comment" Multiplicity="0..1" />
+          <End Role="Tbl_Comment1" Type="Self.Tbl_Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Comment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tbl_Comment1">
+              <PropertyRef Name="CommentID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Comment_Tbl_Product">
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
+          <End Role="Tbl_Comment" Type="Self.Tbl_Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Tbl_Comment">
+              <PropertyRef Name="ProductID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Order_Tbl_Post">
+          <End Role="Tbl_Post" Type="Self.Tbl_Post" Multiplicity="0..1" />
+          <End Role="Tbl_Order" Type="Self.Tbl_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Post">
+              <PropertyRef Name="PostID" />
+            </Principal>
+            <Dependent Role="Tbl_Order">
+              <PropertyRef Name="PostID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Order_Tbl_Product">
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="1" />
+          <End Role="Tbl_Order" Type="Self.Tbl_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Tbl_Order">
+              <PropertyRef Name="Product_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Order_Tbl_User">
+          <End Role="Tbl_User" Type="Self.Tbl_User" Multiplicity="1" />
+          <End Role="Tbl_Order" Type="Self.Tbl_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Tbl_Order">
+              <PropertyRef Name="UserID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Products_Tbl_Guaranty">
+          <End Role="Tbl_Guaranty" Type="Self.Tbl_Guaranty" Multiplicity="0..1" />
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Guaranty">
+              <PropertyRef Name="GuarantyID" />
+            </Principal>
+            <Dependent Role="Tbl_Product">
+              <PropertyRef Name="GurantyID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Products_Tbl_Users">
+          <End Role="Tbl_User" Type="Self.Tbl_User" Multiplicity="1" />
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Tbl_Product">
+              <PropertyRef Name="UserRegisterID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_ProductsPictures_dbo_Tbl_Pictures">
+          <End Role="Tbl_Pictures" Type="Self.Tbl_Pictures" Multiplicity="0..1" />
+          <End Role="Tbl_ProductImage" Type="Self.Tbl_ProductImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Pictures">
+              <PropertyRef Name="PicId" />
+            </Principal>
+            <Dependent Role="Tbl_ProductImage">
+              <PropertyRef Name="PicID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_ProductsPictures_Tbl_Products">
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
+          <End Role="Tbl_ProductImage" Type="Self.Tbl_ProductImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Tbl_ProductImage">
+              <PropertyRef Name="ProductID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WebStoreDbModelStoreContainer">
+          <EntitySet Name="ShoppingCart" EntityType="Self.ShoppingCart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiteSetting" EntityType="Self.SiteSetting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Category" EntityType="Self.Tbl_Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Comment" EntityType="Self.Tbl_Comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Guaranty" EntityType="Self.Tbl_Guaranty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Menu" EntityType="Self.Tbl_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Order" EntityType="Self.Tbl_Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Pictures" EntityType="Self.Tbl_Pictures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Post" EntityType="Self.Tbl_Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Product" EntityType="Self.Tbl_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_ProductImage" EntityType="Self.Tbl_ProductImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Prouducts_Categories" EntityType="Self.Tbl_Prouducts_Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_SliderImage" EntityType="Self.Tbl_SliderImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_User" EntityType="Self.Tbl_User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ShoppingCart_Tbl_Product" Association="Self.FK_ShoppingCart_Tbl_Product">
+            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
+            <End Role="ShoppingCart" EntitySet="ShoppingCart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Category_Products_Tbl_Category" Association="Self.FK_Tbl_Category_Products_Tbl_Category">
+            <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+            <End Role="Tbl_Prouducts_Categories" EntitySet="Tbl_Prouducts_Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Category_Products_Tbl_Product" Association="Self.FK_Tbl_Category_Products_Tbl_Product">
+            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
+            <End Role="Tbl_Prouducts_Categories" EntitySet="Tbl_Prouducts_Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Category_Tbl_Category" Association="Self.FK_Tbl_Category_Tbl_Category">
+            <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+            <End Role="Tbl_Category1" EntitySet="Tbl_Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Comment_Tbl_Comment" Association="Self.FK_Tbl_Comment_Tbl_Comment">
+            <End Role="Tbl_Comment" EntitySet="Tbl_Comment" />
+            <End Role="Tbl_Comment1" EntitySet="Tbl_Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Comment_Tbl_Product" Association="Self.FK_Tbl_Comment_Tbl_Product">
+            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
+            <End Role="Tbl_Comment" EntitySet="Tbl_Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Order_Tbl_Post" Association="Self.FK_Tbl_Order_Tbl_Post">
+            <End Role="Tbl_Post" EntitySet="Tbl_Post" />
+            <End Role="Tbl_Order" EntitySet="Tbl_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Order_Tbl_Product" Association="Self.FK_Tbl_Order_Tbl_Product">
+            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
+            <End Role="Tbl_Order" EntitySet="Tbl_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Order_Tbl_User" Association="Self.FK_Tbl_Order_Tbl_User">
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+            <End Role="Tbl_Order" EntitySet="Tbl_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Products_Tbl_Guaranty" Association="Self.FK_Tbl_Products_Tbl_Guaranty">
+            <End Role="Tbl_Guaranty" EntitySet="Tbl_Guaranty" />
+            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Products_Tbl_Users" Association="Self.FK_Tbl_Products_Tbl_Users">
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_ProductsPictures_dbo_Tbl_Pictures" Association="Self.FK_Tbl_ProductsPictures_dbo_Tbl_Pictures">
+            <End Role="Tbl_Pictures" EntitySet="Tbl_Pictures" />
+            <End Role="Tbl_ProductImage" EntitySet="Tbl_ProductImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_ProductsPictures_Tbl_Products" Association="Self.FK_Tbl_ProductsPictures_Tbl_Products">
+            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
+            <End Role="Tbl_ProductImage" EntitySet="Tbl_ProductImage" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebStoreDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ShoppingCart">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CookieID" Type="Double" />
+          <Property Name="ProductID_FK" Type="Int32" />
+          <Property Name="ProductCount" Type="Int32" />
+          <Property Name="RegisterDate" Type="DateTime" Precision="0" />
+          <Property Name="PaymentStatus" Type="Boolean" />
+          <NavigationProperty Name="Tbl_Product" Relationship="Self.FK_ShoppingCart_Tbl_Product" FromRole="ShoppingCart" ToRole="Tbl_Product" />
+        </EntityType>
+        <EntityType Name="SiteSetting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SiteDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MetaTags" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayCommentAfterConfirm" Type="Boolean" />
+          <Property Name="DisableComment" Type="Boolean" />
+          <Property Name="MaxUploadSize" Type="Int32" />
+          <Property Name="ValidFormat" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayProductCount" Type="Int32" />
+          <Property Name="Tax" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ValueAddedPercentage" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ParentID" Type="Int32" />
+          <NavigationProperty Name="Tbl_Prouducts_Categories" Relationship="Self.FK_Tbl_Category_Products_Tbl_Category" FromRole="Tbl_Category" ToRole="Tbl_Prouducts_Categories" />
+          <NavigationProperty Name="Tbl_Category1" Relationship="Self.FK_Tbl_Category_Tbl_Category" FromRole="Tbl_Category" ToRole="Tbl_Category1" />
+          <NavigationProperty Name="Tbl_Category2" Relationship="Self.FK_Tbl_Category_Tbl_Category" FromRole="Tbl_Category1" ToRole="Tbl_Category" />
+        </EntityType>
+        <EntityType Name="Tbl_Comment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID_FK" Type="Int32" />
+          <Property Name="CommentID_FK" Type="Int32" />
+          <Property Name="UserFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterDate" Type="DateTime" Precision="0" />
+          <Property Name="Comment_Confirm" Type="Boolean" />
+          <Property Name="Comment_IsRead" Type="Boolean" />
+          <Property Name="Comment_Like" Type="Int32" />
+          <Property Name="Comment_Dislike" Type="Int32" />
+          <NavigationProperty Name="Tbl_Comment1" Relationship="Self.FK_Tbl_Comment_Tbl_Comment" FromRole="Tbl_Comment" ToRole="Tbl_Comment1" />
+          <NavigationProperty Name="Tbl_Comment2" Relationship="Self.FK_Tbl_Comment_Tbl_Comment" FromRole="Tbl_Comment1" ToRole="Tbl_Comment" />
+          <NavigationProperty Name="Tbl_Product" Relationship="Self.FK_Tbl_Comment_Tbl_Product" FromRole="Tbl_Comment" ToRole="Tbl_Product" />
+        </EntityType>
+        <EntityType Name="Tbl_Guaranty">
+          <Key>
+            <PropertyRef Name="GuarantyID" />
+          </Key>
+          <Property Name="GuarantyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tbl_Product" Relationship="Self.FK_Tbl_Products_Tbl_Guaranty" FromRole="Tbl_Guaranty" ToRole="Tbl_Product" />
+        </EntityType>
+        <EntityType Name="Tbl_Menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Sort" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Tbl_Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID_FK" Type="Int32" Nullable="false" />
+          <Property Name="Product_FK" Type="Int32" Nullable="false" />
+          <Property Name="OrderCount" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="OrderStatus" Type="Int32" />
+          <Property Name="PostID_FK" Type="Int32" />
+          <NavigationProperty Name="Tbl_Post" Relationship="Self.FK_Tbl_Order_Tbl_Post" FromRole="Tbl_Order" ToRole="Tbl_Post" />
+          <NavigationProperty Name="Tbl_Product" Relationship="Self.FK_Tbl_Order_Tbl_Product" FromRole="Tbl_Order" ToRole="Tbl_Product" />
+          <NavigationProperty Name="Tbl_User" Relationship="Self.FK_Tbl_Order_Tbl_User" FromRole="Tbl_Order" ToRole="Tbl_User" />
+        </EntityType>
+        <EntityType Name="Tbl_Pictures">
+          <Key>
+            <PropertyRef Name="PicId" />
+          </Key>
+          <Property Name="PicId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PicName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tbl_ProductImage" Relationship="Self.FK_Tbl_ProductsPictures_dbo_Tbl_Pictures" FromRole="Tbl_Pictures" ToRole="Tbl_ProductImage" />
+        </EntityType>
+        <EntityType Name="Tbl_Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Tbl_Order" Relationship="Self.FK_Tbl_Order_Tbl_Post" FromRole="Tbl_Post" ToRole="Tbl_Order" />
+        </EntityType>
+        <EntityType Name="Tbl_Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductEnglishTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AvailaibleCout" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegisterDate" Type="DateTime" Precision="0" />
+          <Property Name="Product_Off" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Visit" Type="Double" />
+          <Property Name="Product_Like" Type="Double" />
+          <Property Name="Product_Dislike" Type="Double" />
+          <Property Name="UserRegisterID_FK" Type="Int32" Nullable="false" />
+          <Property Name="GurantyID_FK" Type="Int32" />
+          <NavigationProperty Name="ShoppingCart" Relationship="Self.FK_ShoppingCart_Tbl_Product" FromRole="Tbl_Product" ToRole="ShoppingCart" />
+          <NavigationProperty Name="Tbl_Comment" Relationship="Self.FK_Tbl_Comment_Tbl_Product" FromRole="Tbl_Product" ToRole="Tbl_Comment" />
+          <NavigationProperty Name="Tbl_Guaranty" Relationship="Self.FK_Tbl_Products_Tbl_Guaranty" FromRole="Tbl_Product" ToRole="Tbl_Guaranty" />
+          <NavigationProperty Name="Tbl_Order" Relationship="Self.FK_Tbl_Order_Tbl_Product" FromRole="Tbl_Product" ToRole="Tbl_Order" />
+          <NavigationProperty Name="Tbl_Prouducts_Categories" Relationship="Self.FK_Tbl_Category_Products_Tbl_Product" FromRole="Tbl_Product" ToRole="Tbl_Prouducts_Categories" />
+          <NavigationProperty Name="Tbl_User" Relationship="Self.FK_Tbl_Products_Tbl_Users" FromRole="Tbl_Product" ToRole="Tbl_User" />
+          <NavigationProperty Name="Tbl_ProductImage" Relationship="Self.FK_Tbl_ProductsPictures_Tbl_Products" FromRole="Tbl_Product" ToRole="Tbl_ProductImage" />
+        </EntityType>
+        <EntityType Name="Tbl_ProductImage">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PicID_FK" Type="Int32" />
+          <Property Name="ProductID_FK" Type="Int32" />
+          <NavigationProperty Name="Tbl_Pictures" Relationship="Self.FK_Tbl_ProductsPictures_dbo_Tbl_Pictures" FromRole="Tbl_ProductImage" ToRole="Tbl_Pictures" />
+          <NavigationProperty Name="Tbl_Product" Relationship="Self.FK_Tbl_ProductsPictures_Tbl_Products" FromRole="Tbl_ProductImage" ToRole="Tbl_Product" />
+        </EntityType>
+        <EntityType Name="Tbl_Prouducts_Categories">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CatID_FK" Type="Int32" />
+          <Property Name="ProductID_FK" Type="Int32" />
+          <NavigationProperty Name="Tbl_Category" Relationship="Self.FK_Tbl_Category_Products_Tbl_Category" FromRole="Tbl_Prouducts_Categories" ToRole="Tbl_Category" />
+          <NavigationProperty Name="Tbl_Product" Relationship="Self.FK_Tbl_Category_Products_Tbl_Product" FromRole="Tbl_Prouducts_Categories" ToRole="Tbl_Product" />
+        </EntityType>
+        <EntityType Name="Tbl_SliderImage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ImageCaption" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ImageText" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Sort" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Tbl_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TellPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Province" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserPic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterDate" Type="DateTime" Precision="3" />
+          <Property Name="Gender" Type="Boolean" />
+          <Property Name="AccessLevelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tbl_Order" Relationship="Self.FK_Tbl_Order_Tbl_User" FromRole="Tbl_User" ToRole="Tbl_Order" />
+          <NavigationProperty Name="Tbl_Product" Relationship="Self.FK_Tbl_Products_Tbl_Users" FromRole="Tbl_User" ToRole="Tbl_Product" />
+        </EntityType>
+        <Association Name="FK_ShoppingCart_Tbl_Product">
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
+          <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ShoppingCart">
+              <PropertyRef Name="ProductID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Category_Products_Tbl_Category">
+          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="0..1" />
+          <End Role="Tbl_Prouducts_Categories" Type="Self.Tbl_Prouducts_Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Tbl_Prouducts_Categories">
+              <PropertyRef Name="CatID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Category_Tbl_Category">
+          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="0..1" />
+          <End Role="Tbl_Category1" Type="Self.Tbl_Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Tbl_Category1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Comment_Tbl_Comment">
+          <End Role="Tbl_Comment" Type="Self.Tbl_Comment" Multiplicity="0..1" />
+          <End Role="Tbl_Comment1" Type="Self.Tbl_Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Comment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tbl_Comment1">
+              <PropertyRef Name="CommentID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Comment_Tbl_Product">
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
+          <End Role="Tbl_Comment" Type="Self.Tbl_Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Tbl_Comment">
+              <PropertyRef Name="ProductID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Products_Tbl_Guaranty">
+          <End Role="Tbl_Guaranty" Type="Self.Tbl_Guaranty" Multiplicity="0..1" />
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Guaranty">
+              <PropertyRef Name="GuarantyID" />
+            </Principal>
+            <Dependent Role="Tbl_Product">
+              <PropertyRef Name="GurantyID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Order_Tbl_Post">
+          <End Role="Tbl_Post" Type="Self.Tbl_Post" Multiplicity="0..1" />
+          <End Role="Tbl_Order" Type="Self.Tbl_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Post">
+              <PropertyRef Name="PostID" />
+            </Principal>
+            <Dependent Role="Tbl_Order">
+              <PropertyRef Name="PostID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Order_Tbl_Product">
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="1" />
+          <End Role="Tbl_Order" Type="Self.Tbl_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Tbl_Order">
+              <PropertyRef Name="Product_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Order_Tbl_User">
+          <End Role="Tbl_User" Type="Self.Tbl_User" Multiplicity="1" />
+          <End Role="Tbl_Order" Type="Self.Tbl_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Tbl_Order">
+              <PropertyRef Name="UserID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_ProductsPictures_dbo_Tbl_Pictures">
+          <End Role="Tbl_Pictures" Type="Self.Tbl_Pictures" Multiplicity="0..1" />
+          <End Role="Tbl_ProductImage" Type="Self.Tbl_ProductImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Pictures">
+              <PropertyRef Name="PicId" />
+            </Principal>
+            <Dependent Role="Tbl_ProductImage">
+              <PropertyRef Name="PicID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Category_Products_Tbl_Product">
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
+          <End Role="Tbl_Prouducts_Categories" Type="Self.Tbl_Prouducts_Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Tbl_Prouducts_Categories">
+              <PropertyRef Name="ProductID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Products_Tbl_Users">
+          <End Role="Tbl_User" Type="Self.Tbl_User" Multiplicity="1" />
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Tbl_Product">
+              <PropertyRef Name="UserRegisterID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_ProductsPictures_Tbl_Products">
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
+          <End Role="Tbl_ProductImage" Type="Self.Tbl_ProductImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Tbl_ProductImage">
+              <PropertyRef Name="ProductID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ShoppingStoreDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ShoppingCart" EntityType="Self.ShoppingCart" />
+          <EntitySet Name="SiteSetting" EntityType="Self.SiteSetting" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tbl_Category" EntityType="Self.Tbl_Category" />
+          <EntitySet Name="Tbl_Comment" EntityType="Self.Tbl_Comment" />
+          <EntitySet Name="Tbl_Guaranty" EntityType="Self.Tbl_Guaranty" />
+          <EntitySet Name="Tbl_Menu" EntityType="Self.Tbl_Menu" />
+          <EntitySet Name="Tbl_Order" EntityType="Self.Tbl_Order" />
+          <EntitySet Name="Tbl_Pictures" EntityType="Self.Tbl_Pictures" />
+          <EntitySet Name="Tbl_Post" EntityType="Self.Tbl_Post" />
+          <EntitySet Name="Tbl_Product" EntityType="Self.Tbl_Product" />
+          <EntitySet Name="Tbl_ProductImage" EntityType="Self.Tbl_ProductImage" />
+          <EntitySet Name="Tbl_Prouducts_Categories" EntityType="Self.Tbl_Prouducts_Categories" />
+          <EntitySet Name="Tbl_SliderImage" EntityType="Self.Tbl_SliderImage" />
+          <EntitySet Name="Tbl_User" EntityType="Self.Tbl_User" />
+          <AssociationSet Name="FK_ShoppingCart_Tbl_Product" Association="Self.FK_ShoppingCart_Tbl_Product">
+            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
+            <End Role="ShoppingCart" EntitySet="ShoppingCart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Category_Products_Tbl_Category" Association="Self.FK_Tbl_Category_Products_Tbl_Category">
+            <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+            <End Role="Tbl_Prouducts_Categories" EntitySet="Tbl_Prouducts_Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Category_Tbl_Category" Association="Self.FK_Tbl_Category_Tbl_Category">
+            <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+            <End Role="Tbl_Category1" EntitySet="Tbl_Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Comment_Tbl_Comment" Association="Self.FK_Tbl_Comment_Tbl_Comment">
+            <End Role="Tbl_Comment" EntitySet="Tbl_Comment" />
+            <End Role="Tbl_Comment1" EntitySet="Tbl_Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Comment_Tbl_Product" Association="Self.FK_Tbl_Comment_Tbl_Product">
+            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
+            <End Role="Tbl_Comment" EntitySet="Tbl_Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Products_Tbl_Guaranty" Association="Self.FK_Tbl_Products_Tbl_Guaranty">
+            <End Role="Tbl_Guaranty" EntitySet="Tbl_Guaranty" />
+            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Order_Tbl_Post" Association="Self.FK_Tbl_Order_Tbl_Post">
+            <End Role="Tbl_Post" EntitySet="Tbl_Post" />
+            <End Role="Tbl_Order" EntitySet="Tbl_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Order_Tbl_Product" Association="Self.FK_Tbl_Order_Tbl_Product">
+            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
+            <End Role="Tbl_Order" EntitySet="Tbl_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Order_Tbl_User" Association="Self.FK_Tbl_Order_Tbl_User">
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+            <End Role="Tbl_Order" EntitySet="Tbl_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_ProductsPictures_dbo_Tbl_Pictures" Association="Self.FK_Tbl_ProductsPictures_dbo_Tbl_Pictures">
+            <End Role="Tbl_Pictures" EntitySet="Tbl_Pictures" />
+            <End Role="Tbl_ProductImage" EntitySet="Tbl_ProductImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Category_Products_Tbl_Product" Association="Self.FK_Tbl_Category_Products_Tbl_Product">
+            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
+            <End Role="Tbl_Prouducts_Categories" EntitySet="Tbl_Prouducts_Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Products_Tbl_Users" Association="Self.FK_Tbl_Products_Tbl_Users">
+            <End Role="Tbl_User" EntitySet="Tbl_User" />
+            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_ProductsPictures_Tbl_Products" Association="Self.FK_Tbl_ProductsPictures_Tbl_Products">
+            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
+            <End Role="Tbl_ProductImage" EntitySet="Tbl_ProductImage" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebStoreDbModelStoreContainer" CdmEntityContainer="ShoppingStoreDbEntities">
+          <EntitySetMapping Name="ShoppingCart">
+            <EntityTypeMapping TypeName="WebStoreDbModel.ShoppingCart">
+              <MappingFragment StoreEntitySet="ShoppingCart">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CookieID" ColumnName="CookieID" />
+                <ScalarProperty Name="ProductID_FK" ColumnName="ProductID_FK" />
+                <ScalarProperty Name="ProductCount" ColumnName="ProductCount" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiteSetting">
+            <EntityTypeMapping TypeName="WebStoreDbModel.SiteSetting">
+              <MappingFragment StoreEntitySet="SiteSetting">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="SiteDescription" ColumnName="SiteDescription" />
+                <ScalarProperty Name="MetaTags" ColumnName="MetaTags" />
+                <ScalarProperty Name="DisplayCommentAfterConfirm" ColumnName="DisplayCommentAfterConfirm" />
+                <ScalarProperty Name="DisableComment" ColumnName="DisableComment" />
+                <ScalarProperty Name="MaxUploadSize" ColumnName="MaxUploadSize" />
+                <ScalarProperty Name="ValidFormat" ColumnName="ValidFormat" />
+                <ScalarProperty Name="DisplayProductCount" ColumnName="DisplayProductCount" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="ValueAddedPercentage" ColumnName="ValueAddedPercentage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="WebStoreDbModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Category">
+            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_Category">
+              <MappingFragment StoreEntitySet="Tbl_Category">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryTitle" ColumnName="CategoryTitle" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Comment">
+            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_Comment">
+              <MappingFragment StoreEntitySet="Tbl_Comment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProductID_FK" ColumnName="ProductID_FK" />
+                <ScalarProperty Name="CommentID_FK" ColumnName="CommentID_FK" />
+                <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="Comment_Confirm" ColumnName="Comment_Confirm" />
+                <ScalarProperty Name="Comment_IsRead" ColumnName="Comment_IsRead" />
+                <ScalarProperty Name="Comment_Like" ColumnName="Comment_Like" />
+                <ScalarProperty Name="Comment_Dislike" ColumnName="Comment_Dislike" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Guaranty">
+            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_Guaranty">
+              <MappingFragment StoreEntitySet="Tbl_Guaranty">
+                <ScalarProperty Name="GuarantyID" ColumnName="GuarantyID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Menu">
+            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_Menu">
+              <MappingFragment StoreEntitySet="Tbl_Menu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Order">
+            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_Order">
+              <MappingFragment StoreEntitySet="Tbl_Order">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="UserID_FK" ColumnName="UserID_FK" />
+                <ScalarProperty Name="Product_FK" ColumnName="Product_FK" />
+                <ScalarProperty Name="OrderCount" ColumnName="OrderCount" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="PostID_FK" ColumnName="PostID_FK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Pictures">
+            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_Pictures">
+              <MappingFragment StoreEntitySet="Tbl_Pictures">
+                <ScalarProperty Name="PicId" ColumnName="PicId" />
+                <ScalarProperty Name="PicName" ColumnName="PicName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Post">
+            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_Post">
+              <MappingFragment StoreEntitySet="Tbl_Post">
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Product">
+            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_Product">
+              <MappingFragment StoreEntitySet="Tbl_Product">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductTitle" ColumnName="ProductTitle" />
+                <ScalarProperty Name="ProductEnglishTitle" ColumnName="ProductEnglishTitle" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="AvailaibleCout" ColumnName="AvailaibleCout" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="Product_Off" ColumnName="Product_Off" />
+                <ScalarProperty Name="Visit" ColumnName="Visit" />
+                <ScalarProperty Name="Product_Like" ColumnName="Product_Like" />
+                <ScalarProperty Name="Product_Dislike" ColumnName="Product_Dislike" />
+                <ScalarProperty Name="UserRegisterID_FK" ColumnName="UserRegisterID_FK" />
+                <ScalarProperty Name="GurantyID_FK" ColumnName="GurantyID_FK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_ProductImage">
+            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_ProductImage">
+              <MappingFragment StoreEntitySet="Tbl_ProductImage">
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="PicID_FK" ColumnName="PicID_FK" />
+                <ScalarProperty Name="ProductID_FK" ColumnName="ProductID_FK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Prouducts_Categories">
+            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_Prouducts_Categories">
+              <MappingFragment StoreEntitySet="Tbl_Prouducts_Categories">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CatID_FK" ColumnName="CatID_FK" />
+                <ScalarProperty Name="ProductID_FK" ColumnName="ProductID_FK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_SliderImage">
+            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_SliderImage">
+              <MappingFragment StoreEntitySet="Tbl_SliderImage">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="ImageCaption" ColumnName="ImageCaption" />
+                <ScalarProperty Name="ImageText" ColumnName="ImageText" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_User">
+            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_User">
+              <MappingFragment StoreEntitySet="Tbl_User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="TellPhone" ColumnName="TellPhone" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="UserPic" ColumnName="UserPic" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="AccessLevelName" ColumnName="AccessLevelName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Test4.Models;
 using System.Web.Mvc;
 
 namespace ShoppingStore_Rimo.Controllers
