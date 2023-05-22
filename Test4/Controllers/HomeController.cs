@@ -5,7 +5,7 @@ using System.Web;
 using Test4.Models;
 using System.Web.Mvc;
 
-namespace ShoppingStore_Rimo.Controllers
+namespace Test4.Controllers
 {
     public class HomeController : Controller
     {
