@@ -20,7 +20,7 @@ namespace ShoppingStore_Rimo.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult ContactUs()
         {
             ViewBag.Message = "Your contact page.";
 
@@ -35,6 +35,11 @@ namespace ShoppingStore_Rimo.Controllers
         {
             return View();
         }
+        public ActionResult NewProductSlider()
+        {
+            return PartialView();  
+        }
+
 
     }
 }
