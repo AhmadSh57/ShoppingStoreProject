@@ -14,7 +14,7 @@ namespace Test4.Models
     
     public partial class Tbl_SliderImage
     {
-        public int ID { get; set; }
+        public int ImageID { get; set; }
         public string ImageName { get; set; }
         public string ImageCaption { get; set; }
         public string ImageText { get; set; }

@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="11ea1646494548f6921d8f6299cf588a" Name="Diagram1" ZoomLevel="76">
+      <Diagram DiagramId="65ce19274cdd43a8a03187a033c3a296" Name="Diagram1">
         <EntityTypeShape EntityType="WebStoreDbModel.ShoppingCart" Width="1.5" PointX="8.25" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.SiteSetting" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Category" Width="1.5" PointX="6.875" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Category" Width="1.5" PointX="9" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Comment" Width="1.5" PointX="8.25" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Guaranty" Width="1.5" PointX="3.75" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Menu" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />

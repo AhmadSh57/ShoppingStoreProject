@@ -147,9 +147,9 @@
         </EntityType>
         <EntityType Name="Tbl_SliderImage">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ImageID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ImageName" Type="nvarchar" MaxLength="200" />
           <Property Name="ImageCaption" Type="nvarchar" MaxLength="100" />
           <Property Name="ImageText" Type="nvarchar" MaxLength="150" />
@@ -573,9 +573,9 @@
         </EntityType>
         <EntityType Name="Tbl_SliderImage">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ImageID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ImageName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="ImageCaption" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ImageText" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
@@ -761,7 +761,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ShoppingStoreDbEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="WebStoreDbEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ShoppingCart" EntityType="Self.ShoppingCart" />
           <EntitySet Name="SiteSetting" EntityType="Self.SiteSetting" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -835,7 +835,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WebStoreDbModelStoreContainer" CdmEntityContainer="ShoppingStoreDbEntities">
+        <EntityContainerMapping StorageEntityContainer="WebStoreDbModelStoreContainer" CdmEntityContainer="WebStoreDbEntities1">
           <EntitySetMapping Name="ShoppingCart">
             <EntityTypeMapping TypeName="WebStoreDbModel.ShoppingCart">
               <MappingFragment StoreEntitySet="ShoppingCart">
@@ -992,7 +992,7 @@
           <EntitySetMapping Name="Tbl_SliderImage">
             <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_SliderImage">
               <MappingFragment StoreEntitySet="Tbl_SliderImage">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
                 <ScalarProperty Name="ImageName" ColumnName="ImageName" />
                 <ScalarProperty Name="ImageCaption" ColumnName="ImageCaption" />
                 <ScalarProperty Name="ImageText" ColumnName="ImageText" />
