@@ -469,8 +469,11 @@
     <Content Include="Views\Shared\CategoriesDiscount.cshtml" />
     <Content Include="Views\Shared\NewProductsSlider.cshtml" />
     <Content Include="Views\Shared\ContactUs.cshtml" />
-    <Content Include="Views\Shared\MainSlider.cshtml" />
-    <Content Include="Views\Shared\View.cshtml" />
+    <Content Include="Views\Shared\Header_MainSlider.cshtml" />
+    <Content Include="Views\Shared\Header_MainNav.cshtml" />
+    <Content Include="Views\Shared\Header_BottomNav.cshtml" />
+    <Content Include="Views\Shared\Header_ResponsiveMenu.cshtml" />
+    <Content Include="Views\Shared\Header_UserBasket.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

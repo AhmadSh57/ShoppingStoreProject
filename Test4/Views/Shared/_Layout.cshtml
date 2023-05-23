@@ -11,11 +11,11 @@
 <body>
     @using Test4.Models;
 
-    <!-- header-------------------------------->
-    @Html.Partial("HeaderMainNav");
+    <!-- Header Main Nav-------------------------------->
+    @Html.Partial("Header_MainNav")
 
     <!--required-->
-    @RenderSection("MainSlider", required: false)
+    @RenderSection("Header_MainSlider", required: false)
 
 
     @RenderBody()
