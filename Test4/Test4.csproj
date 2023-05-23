@@ -458,19 +458,19 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Shared\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\SignUp.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\ContactUs.cshtml" />
-    <Content Include="Views\Home\PhoneSlider.cshtml" />
-    <Content Include="Views\Home\InstantOffer.cshtml" />
-    <Content Include="Views\Home\ProductsDiscountSlider.cshtml" />
-    <Content Include="Views\Home\ProductsSlider.cshtml" />
-    <Content Include="Views\Home\CategoriesDiscount.cshtml" />
-    <Content Include="Views\Home\NewProductsSlider.cshtml" />
-    <Content Include="Views\Home\MainSlider.cshtml" />
-    <Content Include="Views\Home\ProductsSpecialDiscountImage.cshtml" />
+    <Content Include="Views\Shared\SignUp.cshtml" />
+    <Content Include="Views\Shared\Login.cshtml" />
+    <Content Include="Views\Shared\PhoneSlider.cshtml" />
+    <Content Include="Views\Shared\InstantOffer.cshtml" />
+    <Content Include="Views\Shared\ProductsDiscountSlider.cshtml" />
+    <Content Include="Views\Shared\ProductsSlider.cshtml" />
+    <Content Include="Views\Shared\CategoriesDiscount.cshtml" />
+    <Content Include="Views\Shared\NewProductsSlider.cshtml" />
+    <Content Include="Views\Shared\ContactUs.cshtml" />
+    <Content Include="Views\Shared\MainSlider.cshtml" />
+    <Content Include="Views\Shared\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

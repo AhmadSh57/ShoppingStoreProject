@@ -4,13 +4,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using Test4.Models
 
 
-<!-- adplacement------------------------------->
-@Html.Partial("ProductsSpecialDiscountImage","Home")
 
 <!-- slider-main--------------------------->
-@Html.Partial("MainSlider","Home")
+@section MainSlider{
+
+  @Html.Partial("MainSlider","Home")
+}
 
 <!--Instant Offer-->
 @Html.Partial("InstantOffer", "Home")

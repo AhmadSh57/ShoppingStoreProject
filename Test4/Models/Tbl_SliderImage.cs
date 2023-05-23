@@ -11,7 +11,8 @@ namespace Test4.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.UI;
+
     public partial class Tbl_SliderImage
     {
         public int ImageID { get; set; }
@@ -19,6 +20,8 @@ namespace Test4.Models
         public string ImageCaption { get; set; }
         public string ImageText { get; set; }
         public string Link { get; set; }
+        public string CompanyName { get; set; }
         public Nullable<int> Sort { get; set; }
+
     }
 }

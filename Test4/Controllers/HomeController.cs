@@ -23,7 +23,6 @@ namespace Test4.Controllers
 
         public ActionResult ContactUs()
         {
-            ViewBag.Message = "Your contact page.";
 
             return View();
         }
