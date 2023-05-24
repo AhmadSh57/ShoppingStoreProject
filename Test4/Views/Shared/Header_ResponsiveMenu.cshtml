@@ -15,27 +15,29 @@
         @{
             WebStoreDbEntities1 DataBase = new WebStoreDbEntities1();
             IQueryable<Tbl_Category> QMainTitle = DataBase.Tbl_Category.Where(i => i.CategoryID != 24 && i.ParentID == 24);
-
-
-
-
+            int CollapaseCount = 0;
+            int HeadingCount = 0;
         }
 
         @foreach (var MainTitle in QMainTitle)
-        {
+            {
+                CollapaseCount++;
+                string CollapseId = "Collapse" + CollapaseCount.ToString();
+                HeadingCount++;
+                string HeadingId = "Heading" + HeadingCount.ToString();
             <li>
                 <a href="#" class="collapsed" type="button" data-toggle="collapse"
-                   data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                   data-target="#@CollapseId" aria-expanded="false" aria-controls="@CollapseId" >
 
                 </a>
 
                 <div class="d-flex flex-row justify-content-between align-items-center">
                     @*Show Main Titles*@
-                    @Html.ActionLink(MainTitle.CategoryTitle, "MainTitle", null, new { MainTitleId = MainTitle.CategoryID, MainTitle = MainTitle.CategoryTitle }, new { @class = "collapsed ", type = "button", data_toggle = "collapse", data_target = "#collapseOne", aria_expanded = "false", aria_controls = "collapseOne" })
+                    @Html.ActionLink(MainTitle.CategoryTitle, "MainTitle",null, new { @class = "collapsed ", type = "button", data_toggle = "collapse", data_target = $"#{CollapseId}", aria_expanded = "false", aria_controls = $"{CollapseId}" })
 
-                    <i class="mdi mdi-chevron-down d-flex flex-row"></i>کالای دیجیتال
+                    <i class="mdi mdi-chevron-down d-flex flex-row"></i>
                 </div>
-                <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                <div id="@CollapseId"  class="collapse" aria-labelledby="@HeadingId"
                      data-parent="#accordionExample" style="">
 
                     <ul>
@@ -69,8 +71,6 @@
                 </div>
             </li>
         }
-
-
 
 
         <li><a href="/Home/ContactUs">ارتباط با ما</a></li>
