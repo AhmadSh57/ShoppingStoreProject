@@ -1,4 +1,6 @@
-﻿<nav class="sidebar">
+﻿@using Test4.Models;
+
+<nav class="sidebar">
     <div class="nav-header">
         <div class="header-cover"></div>
         <div class="logo-wrap">
@@ -9,130 +11,69 @@
         </div>
     </div>
     <ul class="nav-categories ul-base">
-        <li>
-            <a href="#" class="collapsed" type="button" data-toggle="collapse"
-               data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                <i class="mdi mdi-chevron-down"></i>کالای دیجیتال
-            </a>
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-                 data-parent="#accordionExample" style="">
-                <ul>
-                    <li class="has-sub">
-                        <a href="#" class="category-level-2">لوازم جانبی گوشی</a>
-                        <ul>
-                            <li><a href="#" class="category-level-3">کیف و کاور گوشی</a></li>
-                            <li><a href="#" class="category-level-3">پاور بانک(شارژر همراه)</a></li>
-                            <li><a href="#" class="category-level-3">پایه نگهدارنده گوشی</a></li>
-                            <li><a href="#" class="category-level-3">همه موارد این دسته</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="#" class="category-level-2">گوشی موبایل</a>
-                        <ul>
-                            <li><a href="#" class="category-level-3">سامسونگ</a></li>
-                            <li><a href="#" class="category-level-3">هوآوی</a></li>
-                            <li><a href="#" class="category-level-3">اپل</a></li>
-                            <li><a href="#" class="category-level-3">شیائومی</a></li>
-                            <li><a href="#" class="category-level-3">آنر</a></li>
-                            <li><a href="#" class="category-level-3">نوکیا</a></li>
-                            <li><a href="#" class="category-level-3">همه موارد این دسته</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="#" class="category-level-2">دوربین</a>
-                        <ul>
-                            <li><a href="#" class="category-level-3">دوربین عکاسی دیجیتال</a></li>
-                            <li><a href="#" class="category-level-3">دوربین ورزشی و فیلم برداری</a></li>
-                            <li><a href="#" class="category-level-3">دوربین چاپ سریع</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li>
-            <a href="#" class="collapsed" type="button" data-toggle="collapse"
-               data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                <i class="mdi mdi-chevron-down"></i>آرایشی و بهداشتی
-            </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                 data-parent="#accordionExample" style="">
-                <ul>
-                    <li class="has-sub">
-                        <a href="#" class="category-level-2">لوازم جانبی گوشی</a>
-                        <ul>
-                            <li><a href="#" class="category-level-3">کیف و کاور گوشی</a></li>
-                            <li><a href="#" class="category-level-3">پاور بانک(شارژر همراه)</a></li>
-                            <li><a href="#" class="category-level-3">پایه نگهدارنده گوشی</a></li>
-                            <li><a href="#" class="category-level-3">همه موارد این دسته</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="#" class="category-level-2">گوشی موبایل</a>
-                        <ul>
-                            <li><a href="#" class="category-level-3">سامسونگ</a></li>
-                            <li><a href="#" class="category-level-3">هوآوی</a></li>
-                            <li><a href="#" class="category-level-3">اپل</a></li>
-                            <li><a href="#" class="category-level-3">شیائومی</a></li>
-                            <li><a href="#" class="category-level-3">آنر</a></li>
-                            <li><a href="#" class="category-level-3">نوکیا</a></li>
-                            <li><a href="#" class="category-level-3">همه موارد این دسته</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="#" class="category-level-2">دوربین</a>
-                        <ul>
-                            <li><a href="#" class="category-level-3">دوربین عکاسی دیجیتال</a></li>
-                            <li><a href="#" class="category-level-3">دوربین ورزشی و فیلم برداری</a></li>
-                            <li><a href="#" class="category-level-3">دوربین چاپ سریع</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li><a href="#">ابزار و اداری</a></li>
-        <li><a href="#">مد و پوشاک</a></li>
-        <li>
-            <a href="#" class="collapsed" type="button" data-toggle="collapse"
-               data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                <i class="mdi mdi-chevron-down"></i>خانه و آشپزخانه
-            </a>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                 data-parent="#accordionExample" style="">
-                <ul>
-                    <li class="has-sub">
-                        <a href="#" class="category-level-2">لوازم جانبی گوشی</a>
-                        <ul>
-                            <li><a href="#" class="category-level-3">کیف و کاور گوشی</a></li>
-                            <li><a href="#" class="category-level-3">پاور بانک(شارژر همراه)</a></li>
-                            <li><a href="#" class="category-level-3">پایه نگهدارنده گوشی</a></li>
-                            <li><a href="#" class="category-level-3">همه موارد این دسته</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="#" class="category-level-2">گوشی موبایل</a>
-                        <ul>
-                            <li><a href="#" class="category-level-3">سامسونگ</a></li>
-                            <li><a href="#" class="category-level-3">هوآوی</a></li>
-                            <li><a href="#" class="category-level-3">اپل</a></li>
-                            <li><a href="#" class="category-level-3">شیائومی</a></li>
-                            <li><a href="#" class="category-level-3">آنر</a></li>
-                            <li><a href="#" class="category-level-3">نوکیا</a></li>
-                            <li><a href="#" class="category-level-3">همه موارد این دسته</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a href="#" class="category-level-2">دوربین</a>
-                        <ul>
-                            <li><a href="#" class="category-level-3">دوربین عکاسی دیجیتال</a></li>
-                            <li><a href="#" class="category-level-3">دوربین ورزشی و فیلم برداری</a></li>
-                            <li><a href="#" class="category-level-3">دوربین چاپ سریع</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li><a href="#">لوازم تحریر و هنر</a></li>
-        <li><a href="#">کودک و نوزاد</a></li>
+
+        @{
+            WebStoreDbEntities1 DataBase = new WebStoreDbEntities1();
+            IQueryable<Tbl_Category> QMainTitle = DataBase.Tbl_Category.Where(i => i.CategoryID != 24 && i.ParentID == 24);
+
+
+
+
+        }
+
+        @foreach (var MainTitle in QMainTitle)
+        {
+            <li>
+                <a href="#" class="collapsed" type="button" data-toggle="collapse"
+                   data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+
+                </a>
+
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                    @*Show Main Titles*@
+                    @Html.ActionLink(MainTitle.CategoryTitle, "MainTitle", null, new { MainTitleId = MainTitle.CategoryID, MainTitle = MainTitle.CategoryTitle }, new { @class = "collapsed ", type = "button", data_toggle = "collapse", data_target = "#collapseOne", aria_expanded = "false", aria_controls = "collapseOne" })
+
+                    <i class="mdi mdi-chevron-down d-flex flex-row"></i>کالای دیجیتال
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                     data-parent="#accordionExample" style="">
+
+                    <ul>
+                        @{
+                            IQueryable<Tbl_Category> QSubTitle = DataBase.Tbl_Category.Where(SubTitle => SubTitle.ParentID == MainTitle.CategoryID);
+
+                        }
+
+                        @foreach (var SubTitle in QSubTitle)
+                        {
+                            <li class="has-sub">
+                                @*Show Sub Titles*@
+                                @Html.ActionLink(SubTitle.CategoryTitle, "SubTitle", new { SubTitleId = SubTitle.CategoryID, MainTitle = MainTitle.CategoryTitle }, new { @class = "category-level-2" });
+
+                                @{
+                                    IQueryable<Tbl_Category> QProductsBrand = DataBase.Tbl_Category.Where(ProductBrand => ProductBrand.ParentID == SubTitle.CategoryID);
+                                    foreach (var ProductBrand in QProductsBrand)
+                                    {
+                                        <ul>
+                                            <li>
+                                                @*Show Products Brand*@
+                                                @Html.ActionLink(ProductBrand.CategoryTitle, "ProductBrand", new { BrandId = ProductBrand.CategoryID, BrandSubTitle = SubTitle.CategoryTitle, BrandMainTitle = MainTitle.CategoryTitle }, new { @class = "category-level-3" });
+                                            </li>
+                                        </ul>
+                                    }
+                                }
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+            </li>
+        }
+
+
+
+
+        <li><a href="/Home/ContactUs">ارتباط با ما</a></li>
     </ul>
 </nav>
 <div class="nav-btn nav-slider">
