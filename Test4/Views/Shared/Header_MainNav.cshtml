@@ -102,33 +102,43 @@
                                 {
 
                                     <li id="nav-menu-item" class="menu-item  nav-overlay">
+                                        @*Show Main Title In Nav*@
                                         @Html.ActionLink(MainTitle.CategoryTitle, "MainCategory", new { MainTitle.CategoryID }, new { @class = "fs-1 current-link-menu" })
-                                        @*<a href="/Home/About" class="current-link-menu" data-content="@MainTitle.CategoryID">
-                                            @MainTitle.CategoryTitle
-                                        </a>*@
+
                                         <ul class="sub-menu is-mega-menu mega-menu-level-two">
-                                            <li class="menu-mega-item menu-item-type-mega-menu">
-                                                @*<a href="#" class="mega-menu-link">
-                                                        موبایل
-                                                    </a>*@
-                                                <ul class="sub-menu mega-menu-level-three">
-                                                    @{
-                                                        IQueryable<Tbl_Category> QSubTitle = DataBase.Tbl_Category.Where(SubTitle => SubTitle.ParentID == MainTitle.CategoryID);
-                                                        foreach (var SubTitle in QSubTitle)
-                                                        {
-                                                            <li class="menu-mega-item-three">
-                                                                @Html.ActionLink(SubTitle.CategoryTitle, "SubQuery",new {CatId = SubTitle.CategoryID,CatName = SubTitle.CategoryTitle,MainCat = MainTitle.CategoryTitle})
-                                                            </li>
+                                            @{
+                                                IQueryable<Tbl_Category> QSubTitle = DataBase.Tbl_Category.Where(SubTitle => SubTitle.ParentID == MainTitle.CategoryID);
+                                                foreach (var SubTitle in QSubTitle)
+                                                {
+                                                    <li class="menu-mega-item menu-item-type-mega-menu">
+                                                        @*Show Sub Title In Nav*@
+                                                        @Html.ActionLink(SubTitle.CategoryTitle, "SubQuery", new { CatId = SubTitle.CategoryID, CatName = SubTitle.CategoryTitle, MainCat = MainTitle.CategoryTitle }, new { @class = "mega-menu-link" })
+
+
+                                                        @{
+                                                            IQueryable<Tbl_Category> QProductBrand = DataBase.Tbl_Category.Where(B => B.ParentID == SubTitle.CategoryID);
+                                                            foreach (var ProductsBrand in QProductBrand)
+                                                            {
+                                                                <ul class="sub-menu mega-menu-level-three">
+                                                                    <li class="menu-mega-item-three">
+                                                                        @*Show Proucts Brand In Nav*@
+                                                                        @Html.ActionLink(ProductsBrand.CategoryTitle, "ProuctsBrand", new { CatId = ProductsBrand.CategoryID, CatTitle = ProductsBrand.CategoryTitle, CatSubTitle = SubTitle.CategoryTitle, CatMainTitle = MainTitle.CategoryTitle })
+                                                                    </li>
+                                                                </ul>
+                                                            }
                                                         }
-                                                    }
 
-                                                </ul>
-                                            </li>
+                                                    </li>
 
-                                            @*<li class="bg-image">
-                                                    <img src="/images/menu-main/digital.png" alt="">
-                                                </li>*@
+                                                }
+
+                                            }
                                         </ul>
+
+
+                                        @*<li class="bg-image">
+                                                <img src="/images/menu-main/digital.png" alt="">
+                                            </li>*@
                                     </li>
                                 }
                             }
@@ -143,9 +153,6 @@
                             <!--Basket-->
                             @Html.Partial("Header_UserBasket")
                             <!--Basket-->
-
-
-
                         </ul>
                     </div>
                 </div>
