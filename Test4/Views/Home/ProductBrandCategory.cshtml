@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Test4.Models.ViewModels.VM_Products_Pics>
+
+@{
+    ViewBag.Title = "ProductBrandCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ProductBrandCategory</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PicName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PicName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section NewProductsSlider{
+
+    <div class="container col-12 mx-1">
+        <aside class="main-row-bg d-block d-md-block ">
+            <div class="bg-cover " style="border-radius :20px"></div>
+            <div class="container-main">
+                <div class="d-block">
+                    <section class="content-title section-title mt-5">
+                        <div class="align-items-center">
+                            <div class="col-auto">
+                                <div class="title">
+                                    <h2>جدید ترین محصولات</h2>
+                                </div>
+                                <div class="subtitle">
+                                    <span>آخرین محصولات</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="mb-3">
+
+                        @foreach (var item in Model)
+                        {
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 pt-4 pr">
+                            <div class="card-product-horizontal">
+                                <div class="card-product-horizontal-img">
+                                    <a href="#" class="d-block">
+                                        <img src="/images/slider-product/asus-laptop.jpg">
+                                    </a>
+                                </div>
+                                <div class="card-product-horizontal-content">
+                                    <div class="card-product-horizontal-content-title">
+                                        <a href="#">
+                                            <h3>@item.ProductName</h3>
+                                        </a>
+                                    </div>
+                                    <div class="card-product-horizontal-content-price">
+                                        <span class="amount">
+                                            ۴,۲۰۰,۰۰۰
+                                            <span>تومان</span>
+                                        </span>
+                                    </div>
+                                    <div class="card-product-horizontal-content-rate">
+                                        <i class="fa fa-star active"></i>
+                                        <i class="fa fa-star active"></i>
+                                        <i class="fa fa-star active"></i>
+                                        <i class="fa fa-star active"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+}

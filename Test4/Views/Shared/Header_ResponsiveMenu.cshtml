@@ -13,7 +13,7 @@
     <ul class="nav-categories ul-base">
 
         @{
-            WebStoreDbEntities1 DataBase = new WebStoreDbEntities1();
+            WebStoreDbEntities2 DataBase = new WebStoreDbEntities2();
             IQueryable<Tbl_Category> QMainTitle = DataBase.Tbl_Category.Where(i => i.CategoryID != 24 && i.ParentID == 24);
             int CollapaseCount = 0;
             int HeadingCount = 0;
@@ -50,7 +50,7 @@
                         {
                             <li class="has-sub">
                                 @*Show Sub Titles*@
-                                @Html.ActionLink(SubTitle.CategoryTitle, "SubTitle", new { SubTitleId = SubTitle.CategoryID, MainTitle = MainTitle.CategoryTitle }, new { @class = "category-level-2" });
+                                @Html.ActionLink(SubTitle.CategoryTitle, "SubTitle", null, new { @class = "category-level-2" });
 
                                 @{
                                     IQueryable<Tbl_Category> QProductsBrand = DataBase.Tbl_Category.Where(ProductBrand => ProductBrand.ParentID == SubTitle.CategoryID);
@@ -59,7 +59,7 @@
                                         <ul>
                                             <li>
                                                 @*Show Products Brand*@
-                                                @Html.ActionLink(ProductBrand.CategoryTitle, "ProductBrand", new { BrandId = ProductBrand.CategoryID, BrandSubTitle = SubTitle.CategoryTitle, BrandMainTitle = MainTitle.CategoryTitle }, new { @class = "category-level-3" });
+                                                @Html.ActionLink(ProductBrand.CategoryTitle, "ProductBrand", new { BrandId = ProductBrand.CategoryID });
                                             </li>
                                         </ul>
                                     }

@@ -35,19 +35,17 @@ namespace Test4.Models
         public Nullable<double> Visit { get; set; }
         public Nullable<double> Product_Like { get; set; }
         public Nullable<double> Product_Dislike { get; set; }
-        public int UserRegisterID_FK { get; set; }
+        public Nullable<int> UserRegisterID_FK { get; set; }
         public Nullable<int> GurantyID_FK { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShoppingCart> ShoppingCart { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Comment> Tbl_Comment { get; set; }
-        public virtual Tbl_Guaranty Tbl_Guaranty { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Order> Tbl_Order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Prouducts_Categories> Tbl_Prouducts_Categories { get; set; }
-        public virtual Tbl_User Tbl_User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_ProductImage> Tbl_ProductImage { get; set; }
     }

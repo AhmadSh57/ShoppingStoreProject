@@ -94,7 +94,7 @@
                         <ul class="menu-ul mega-menu-level-one">
 
                             @{
-                                WebStoreDbEntities1 DataBase = new WebStoreDbEntities1();
+                                WebStoreDbEntities2 DataBase = new WebStoreDbEntities2();
 
                                 IQueryable<Tbl_Category> QMainTitle = DataBase.Tbl_Category.Where(i => i.ParentID == 24 && i.CategoryID != 24);
 
@@ -117,12 +117,12 @@
 
                                                         @{
                                                             IQueryable<Tbl_Category> QProductBrand = DataBase.Tbl_Category.Where(B => B.ParentID == SubTitle.CategoryID);
-                                                            foreach (var ProductsBrand in QProductBrand)
+                                                            foreach (var ProductBrand in QProductBrand)
                                                             {
                                                                 <ul class="sub-menu mega-menu-level-three">
                                                                     <li class="menu-mega-item-three">
                                                                         @*Show Proucts Brand In Nav*@
-                                                                        @Html.ActionLink(ProductsBrand.CategoryTitle, "ProuctsBrand", new { CatId = ProductsBrand.CategoryID, CatTitle = ProductsBrand.CategoryTitle, CatSubTitle = SubTitle.CategoryTitle, CatMainTitle = MainTitle.CategoryTitle })
+                                                                        @Html.ActionLink(ProductBrand.CategoryTitle, "ProductBrandCategory", new { ProductBrandCategoryId = ProductBrand.CategoryID })
                                                                     </li>
                                                                 </ul>
                                                             }

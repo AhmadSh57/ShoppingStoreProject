@@ -1,7 +1,7 @@
 ﻿
 @using Test4.Models;
 
-<div class="col-lg-12 col-md-12 col-xs-12 pl" >
+<div class="col-lg-12 col-md-12 col-xs-12 pl mb-3" >
     <div class="slider-main-container d-block">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" >
             <ol class="carousel-indicators">
@@ -15,7 +15,7 @@
                     </div>*@
 
                 @{
-                    WebStoreDbEntities1 database = new WebStoreDbEntities1();
+                    WebStoreDbEntities2 database = new WebStoreDbEntities2();
 
                     //IOrderedQueryable<Test4.Models.Tbl_SliderImage> Query = (from s in database.Tbl_SliderImage select s).OrderBy(a=> a.Sort);
 

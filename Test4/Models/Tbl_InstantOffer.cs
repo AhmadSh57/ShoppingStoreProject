@@ -12,14 +12,14 @@ namespace Test4.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_SliderImage
+    public partial class Tbl_InstantOffer
     {
-        public int ImageID { get; set; }
+        public int ID { get; set; }
         public string ImageName { get; set; }
-        public string ImageCaption { get; set; }
-        public string ImageText { get; set; }
+        public string Caption { get; set; }
+        public string Description { get; set; }
         public string Link { get; set; }
-        public Nullable<int> Sort { get; set; }
-        public string CompanyName { get; set; }
+        public Nullable<decimal> ProductPrice { get; set; }
+        public string ProductTitle { get; set; }
     }
 }

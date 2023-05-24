@@ -13,10 +13,10 @@ namespace Test4.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WebStoreDbEntities1 : DbContext
+    public partial class WebStoreDbEntities2 : DbContext
     {
-        public WebStoreDbEntities1()
-            : base("name=WebStoreDbEntities1")
+        public WebStoreDbEntities2()
+            : base("name=WebStoreDbEntities2")
         {
         }
     
@@ -31,6 +31,7 @@ namespace Test4.Models
         public virtual DbSet<Tbl_Category> Tbl_Category { get; set; }
         public virtual DbSet<Tbl_Comment> Tbl_Comment { get; set; }
         public virtual DbSet<Tbl_Guaranty> Tbl_Guaranty { get; set; }
+        public virtual DbSet<Tbl_InstantOffer> Tbl_InstantOffer { get; set; }
         public virtual DbSet<Tbl_Menu> Tbl_Menu { get; set; }
         public virtual DbSet<Tbl_Order> Tbl_Order { get; set; }
         public virtual DbSet<Tbl_Pictures> Tbl_Pictures { get; set; }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="WebStoreDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="WebStoreDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ShoppingCart">
           <Key>
             <PropertyRef Name="ID" />
@@ -75,6 +75,18 @@
           <Property Name="Title" Type="nvarchar" MaxLength="100" />
           <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="Tbl_InstantOffer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Caption" Type="nvarchar" MaxLength="200" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Link" Type="varchar" MaxLength="200" />
+          <Property Name="ProductPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ProductTitle" Type="nvarchar" MaxLength="150" />
+        </EntityType>
         <EntityType Name="Tbl_Menu">
           <Key>
             <PropertyRef Name="ID" />
@@ -120,13 +132,13 @@
           <Property Name="ProductEnglishTitle" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="AvailaibleCout" Type="int" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="RegisterDate" Type="date" />
           <Property Name="Product_Off" Type="decimal" Precision="18" Scale="0" />
           <Property Name="Visit" Type="float" />
           <Property Name="Product_Like" Type="float" />
           <Property Name="Product_Dislike" Type="float" />
-          <Property Name="UserRegisterID_FK" Type="int" Nullable="false" />
+          <Property Name="UserRegisterID_FK" Type="int" />
           <Property Name="GurantyID_FK" Type="int" />
         </EntityType>
         <EntityType Name="Tbl_ProductImage">
@@ -286,30 +298,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Tbl_Products_Tbl_Guaranty">
-          <End Role="Tbl_Guaranty" Type="Self.Tbl_Guaranty" Multiplicity="0..1" />
-          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tbl_Guaranty">
-              <PropertyRef Name="GuarantyID" />
-            </Principal>
-            <Dependent Role="Tbl_Product">
-              <PropertyRef Name="GurantyID_FK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Tbl_Products_Tbl_Users">
-          <End Role="Tbl_User" Type="Self.Tbl_User" Multiplicity="1" />
-          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tbl_User">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="Tbl_Product">
-              <PropertyRef Name="UserRegisterID_FK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Tbl_ProductsPictures_dbo_Tbl_Pictures">
           <End Role="Tbl_Pictures" Type="Self.Tbl_Pictures" Multiplicity="0..1" />
           <End Role="Tbl_ProductImage" Type="Self.Tbl_ProductImage" Multiplicity="*" />
@@ -341,6 +329,7 @@
           <EntitySet Name="Tbl_Category" EntityType="Self.Tbl_Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Comment" EntityType="Self.Tbl_Comment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Guaranty" EntityType="Self.Tbl_Guaranty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_InstantOffer" EntityType="Self.Tbl_InstantOffer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Menu" EntityType="Self.Tbl_Menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Order" EntityType="Self.Tbl_Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Pictures" EntityType="Self.Tbl_Pictures" Schema="dbo" store:Type="Tables" />
@@ -386,14 +375,6 @@
             <End Role="Tbl_User" EntitySet="Tbl_User" />
             <End Role="Tbl_Order" EntitySet="Tbl_Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_Tbl_Products_Tbl_Guaranty" Association="Self.FK_Tbl_Products_Tbl_Guaranty">
-            <End Role="Tbl_Guaranty" EntitySet="Tbl_Guaranty" />
-            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tbl_Products_Tbl_Users" Association="Self.FK_Tbl_Products_Tbl_Users">
-            <End Role="Tbl_User" EntitySet="Tbl_User" />
-            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
-          </AssociationSet>
           <AssociationSet Name="FK_Tbl_ProductsPictures_dbo_Tbl_Pictures" Association="Self.FK_Tbl_ProductsPictures_dbo_Tbl_Pictures">
             <End Role="Tbl_Pictures" EntitySet="Tbl_Pictures" />
             <End Role="Tbl_ProductImage" EntitySet="Tbl_ProductImage" />
@@ -403,7 +384,8 @@
             <End Role="Tbl_ProductImage" EntitySet="Tbl_ProductImage" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WebStoreDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -483,7 +465,18 @@
           <Property Name="GuarantyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Tbl_Product" Relationship="Self.FK_Tbl_Products_Tbl_Guaranty" FromRole="Tbl_Guaranty" ToRole="Tbl_Product" />
+        </EntityType>
+        <EntityType Name="Tbl_InstantOffer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Caption" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ProductPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ProductTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Tbl_Menu">
           <Key>
@@ -535,20 +528,18 @@
           <Property Name="ProductEnglishTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="AvailaibleCout" Type="Int32" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="RegisterDate" Type="DateTime" Precision="0" />
           <Property Name="Product_Off" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Visit" Type="Double" />
           <Property Name="Product_Like" Type="Double" />
           <Property Name="Product_Dislike" Type="Double" />
-          <Property Name="UserRegisterID_FK" Type="Int32" Nullable="false" />
+          <Property Name="UserRegisterID_FK" Type="Int32" />
           <Property Name="GurantyID_FK" Type="Int32" />
           <NavigationProperty Name="ShoppingCart" Relationship="Self.FK_ShoppingCart_Tbl_Product" FromRole="Tbl_Product" ToRole="ShoppingCart" />
           <NavigationProperty Name="Tbl_Comment" Relationship="Self.FK_Tbl_Comment_Tbl_Product" FromRole="Tbl_Product" ToRole="Tbl_Comment" />
-          <NavigationProperty Name="Tbl_Guaranty" Relationship="Self.FK_Tbl_Products_Tbl_Guaranty" FromRole="Tbl_Product" ToRole="Tbl_Guaranty" />
           <NavigationProperty Name="Tbl_Order" Relationship="Self.FK_Tbl_Order_Tbl_Product" FromRole="Tbl_Product" ToRole="Tbl_Order" />
           <NavigationProperty Name="Tbl_Prouducts_Categories" Relationship="Self.FK_Tbl_Category_Products_Tbl_Product" FromRole="Tbl_Product" ToRole="Tbl_Prouducts_Categories" />
-          <NavigationProperty Name="Tbl_User" Relationship="Self.FK_Tbl_Products_Tbl_Users" FromRole="Tbl_Product" ToRole="Tbl_User" />
           <NavigationProperty Name="Tbl_ProductImage" Relationship="Self.FK_Tbl_ProductsPictures_Tbl_Products" FromRole="Tbl_Product" ToRole="Tbl_ProductImage" />
         </EntityType>
         <EntityType Name="Tbl_ProductImage">
@@ -604,7 +595,6 @@
           <Property Name="Gender" Type="Boolean" />
           <Property Name="AccessLevelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Tbl_Order" Relationship="Self.FK_Tbl_Order_Tbl_User" FromRole="Tbl_User" ToRole="Tbl_Order" />
-          <NavigationProperty Name="Tbl_Product" Relationship="Self.FK_Tbl_Products_Tbl_Users" FromRole="Tbl_User" ToRole="Tbl_Product" />
         </EntityType>
         <Association Name="FK_ShoppingCart_Tbl_Product">
           <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
@@ -663,18 +653,6 @@
             </Principal>
             <Dependent Role="Tbl_Comment">
               <PropertyRef Name="ProductID_FK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Tbl_Products_Tbl_Guaranty">
-          <End Role="Tbl_Guaranty" Type="Self.Tbl_Guaranty" Multiplicity="0..1" />
-          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tbl_Guaranty">
-              <PropertyRef Name="GuarantyID" />
-            </Principal>
-            <Dependent Role="Tbl_Product">
-              <PropertyRef Name="GurantyID_FK" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -738,18 +716,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Tbl_Products_Tbl_Users">
-          <End Role="Tbl_User" Type="Self.Tbl_User" Multiplicity="1" />
-          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tbl_User">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="Tbl_Product">
-              <PropertyRef Name="UserRegisterID_FK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Tbl_ProductsPictures_Tbl_Products">
           <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
           <End Role="Tbl_ProductImage" Type="Self.Tbl_ProductImage" Multiplicity="*" />
@@ -762,13 +728,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="WebStoreDbEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="WebStoreDbEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ShoppingCart" EntityType="Self.ShoppingCart" />
           <EntitySet Name="SiteSetting" EntityType="Self.SiteSetting" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Tbl_Category" EntityType="Self.Tbl_Category" />
           <EntitySet Name="Tbl_Comment" EntityType="Self.Tbl_Comment" />
           <EntitySet Name="Tbl_Guaranty" EntityType="Self.Tbl_Guaranty" />
+          <EntitySet Name="Tbl_InstantOffer" EntityType="Self.Tbl_InstantOffer" />
           <EntitySet Name="Tbl_Menu" EntityType="Self.Tbl_Menu" />
           <EntitySet Name="Tbl_Order" EntityType="Self.Tbl_Order" />
           <EntitySet Name="Tbl_Pictures" EntityType="Self.Tbl_Pictures" />
@@ -798,10 +765,6 @@
             <End Role="Tbl_Product" EntitySet="Tbl_Product" />
             <End Role="Tbl_Comment" EntitySet="Tbl_Comment" />
           </AssociationSet>
-          <AssociationSet Name="FK_Tbl_Products_Tbl_Guaranty" Association="Self.FK_Tbl_Products_Tbl_Guaranty">
-            <End Role="Tbl_Guaranty" EntitySet="Tbl_Guaranty" />
-            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
-          </AssociationSet>
           <AssociationSet Name="FK_Tbl_Order_Tbl_Post" Association="Self.FK_Tbl_Order_Tbl_Post">
             <End Role="Tbl_Post" EntitySet="Tbl_Post" />
             <End Role="Tbl_Order" EntitySet="Tbl_Order" />
@@ -822,10 +785,6 @@
             <End Role="Tbl_Product" EntitySet="Tbl_Product" />
             <End Role="Tbl_Prouducts_Categories" EntitySet="Tbl_Prouducts_Categories" />
           </AssociationSet>
-          <AssociationSet Name="FK_Tbl_Products_Tbl_Users" Association="Self.FK_Tbl_Products_Tbl_Users">
-            <End Role="Tbl_User" EntitySet="Tbl_User" />
-            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
-          </AssociationSet>
           <AssociationSet Name="FK_Tbl_ProductsPictures_Tbl_Products" Association="Self.FK_Tbl_ProductsPictures_Tbl_Products">
             <End Role="Tbl_Product" EntitySet="Tbl_Product" />
             <End Role="Tbl_ProductImage" EntitySet="Tbl_ProductImage" />
@@ -836,7 +795,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WebStoreDbModelStoreContainer" CdmEntityContainer="WebStoreDbEntities1">
+        <EntityContainerMapping StorageEntityContainer="WebStoreDbModelStoreContainer" CdmEntityContainer="WebStoreDbEntities2">
           <EntitySetMapping Name="ShoppingCart">
             <EntityTypeMapping TypeName="WebStoreDbModel.ShoppingCart">
               <MappingFragment StoreEntitySet="ShoppingCart">
@@ -910,6 +869,19 @@
                 <ScalarProperty Name="GuarantyID" ColumnName="GuarantyID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_InstantOffer">
+            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_InstantOffer">
+              <MappingFragment StoreEntitySet="Tbl_InstantOffer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+                <ScalarProperty Name="ProductTitle" ColumnName="ProductTitle" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -993,13 +965,13 @@
           <EntitySetMapping Name="Tbl_SliderImage">
             <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_SliderImage">
               <MappingFragment StoreEntitySet="Tbl_SliderImage">
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
                 <ScalarProperty Name="ImageID" ColumnName="ImageID" />
                 <ScalarProperty Name="ImageName" ColumnName="ImageName" />
                 <ScalarProperty Name="ImageCaption" ColumnName="ImageCaption" />
                 <ScalarProperty Name="ImageText" ColumnName="ImageText" />
                 <ScalarProperty Name="Link" ColumnName="Link" />
                 <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

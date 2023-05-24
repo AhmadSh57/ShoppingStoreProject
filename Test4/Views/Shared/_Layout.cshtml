@@ -14,13 +14,18 @@
     <!-- Header Main Nav-------------------------------->
     @Html.Partial("Header_MainNav")
 
-    <!--required-->
+    <!--required---------------------------------------->
     @RenderSection("Header_MainSlider", required: false)
 
+    <!--New Products Slider----------------------------->
+    @RenderSection("NewProductsSlider",required:false)
+
+    <!--Special Products Slider------------------------->
+    @RenderSection("SpecialProductsSlider", required:false)
 
     @RenderBody()
 
-    <!-- footer------------------------------------------->
+    <!-- footer---------------------------------------->
     <footer class="footer-main-site">
         <section class="d-block d-xl-block d-lg-block d-md-block d-sm-block order-1">
             <div class="footer-shopping-features">

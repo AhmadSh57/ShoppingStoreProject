@@ -4,22 +4,37 @@ using System.Linq;
 using System.Web;
 using Test4.Models;
 using System.Web.Mvc;
+using Test4.Models.Repository;
 
 namespace Test4.Controllers
 {
     public class HomeController : Controller
     {
+        WebStoreDbEntities2 DataBase = new WebStoreDbEntities2();
+
+        Rep_Products _Rep_Products = new Rep_Products();
+
+
         public ActionResult Index()
         {
             return View();
         }
 
+        public ActionResult ProductBrandCategory(int ProductBrandCategoryId)
+        {
+            return View(_Rep_Products.ProductByBrandCategory(ProductBrandCategoryId));
+        }
+
+
+
+
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Your application description page";
 
             return View();
         }
+
 
         public ActionResult ContactUs()
         {
@@ -37,7 +52,7 @@ namespace Test4.Controllers
         }
         public ActionResult NewProductSlider()
         {
-            return PartialView();  
+            return PartialView();
         }
 
 

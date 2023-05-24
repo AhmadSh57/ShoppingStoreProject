@@ -18,7 +18,6 @@ namespace Test4.Models
         public Tbl_User()
         {
             this.Tbl_Order = new HashSet<Tbl_Order>();
-            this.Tbl_Product = new HashSet<Tbl_Product>();
         }
     
         public int UserID { get; set; }
@@ -40,7 +39,5 @@ namespace Test4.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Order> Tbl_Order { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Product> Tbl_Product { get; set; }
     }
 }
