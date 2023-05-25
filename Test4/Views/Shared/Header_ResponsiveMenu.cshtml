@@ -13,7 +13,7 @@
     <ul class="nav-categories ul-base">
 
         @{
-            WebStoreDbEntities2 DataBase = new WebStoreDbEntities2();
+            WebStoreDbEntities3 DataBase = new WebStoreDbEntities3();
             IQueryable<Tbl_Category> QMainTitle = DataBase.Tbl_Category.Where(i => i.CategoryID != 24 && i.ParentID == 24);
             int CollapaseCount = 0;
             int HeadingCount = 0;

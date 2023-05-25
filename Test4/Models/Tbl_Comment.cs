@@ -21,17 +21,17 @@ namespace Test4.Models
         }
     
         public int ID { get; set; }
-        public Nullable<int> ProductID_FK { get; set; }
-        public Nullable<int> CommentID_FK { get; set; }
+        public int ProductID_FK { get; set; }
+        public int CommentID_FK { get; set; }
         public string UserFullName { get; set; }
         public string UserEmail { get; set; }
-        public string Content { get; set; }
+        public string CommentContent { get; set; }
         public string IpAddress { get; set; }
-        public Nullable<System.DateTime> RegisterDate { get; set; }
-        public Nullable<bool> Comment_Confirm { get; set; }
-        public Nullable<bool> Comment_IsRead { get; set; }
-        public Nullable<int> Comment_Like { get; set; }
-        public Nullable<int> Comment_Dislike { get; set; }
+        public System.DateTime RegisterDate { get; set; }
+        public bool Comment_Confirm { get; set; }
+        public bool Comment_IsRead { get; set; }
+        public int Comment_Like { get; set; }
+        public int Comment_Dislike { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Comment> Tbl_Comment1 { get; set; }

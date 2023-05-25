@@ -28,15 +28,15 @@ namespace Test4.Models
         public string ProductTitle { get; set; }
         public string ProductEnglishTitle { get; set; }
         public decimal Price { get; set; }
-        public Nullable<int> AvailaibleCout { get; set; }
+        public int AvailaibleCout { get; set; }
         public string Description { get; set; }
-        public Nullable<System.DateTime> RegisterDate { get; set; }
-        public Nullable<decimal> Product_Off { get; set; }
-        public Nullable<double> Visit { get; set; }
-        public Nullable<double> Product_Like { get; set; }
-        public Nullable<double> Product_Dislike { get; set; }
-        public Nullable<int> UserRegisterID_FK { get; set; }
-        public Nullable<int> GurantyID_FK { get; set; }
+        public System.DateTime RegisterDate { get; set; }
+        public decimal Product_Off { get; set; }
+        public double Visit { get; set; }
+        public double Product_Like { get; set; }
+        public double Product_Dislike { get; set; }
+        public int UserRegisterID_FK { get; set; }
+        public int GurantyID_FK { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShoppingCart> ShoppingCart { get; set; }
@@ -48,5 +48,6 @@ namespace Test4.Models
         public virtual ICollection<Tbl_Prouducts_Categories> Tbl_Prouducts_Categories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_ProductImage> Tbl_ProductImage { get; set; }
+        public virtual Tbl_Guaranty Tbl_Guaranty { get; set; }
     }
 }

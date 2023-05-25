@@ -10,7 +10,7 @@ namespace Test4.Controllers
 {
     public class HomeController : Controller
     {
-        WebStoreDbEntities2 DataBase = new WebStoreDbEntities2();
+        WebStoreDbEntities3 DataBase = new WebStoreDbEntities3();
 
         Rep_Products _Rep_Products = new Rep_Products();
 

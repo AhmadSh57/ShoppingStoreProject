@@ -22,7 +22,7 @@ namespace Test4.Models
     
         public int PostID { get; set; }
         public string Title { get; set; }
-        public Nullable<decimal> Price { get; set; }
+        public decimal Price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Order> Tbl_Order { get; set; }

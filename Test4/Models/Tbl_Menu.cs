@@ -17,6 +17,6 @@ namespace Test4.Models
         public int ID { get; set; }
         public string Title { get; set; }
         public string Link { get; set; }
-        public Nullable<int> Sort { get; set; }
+        public int Sort { get; set; }
     }
 }

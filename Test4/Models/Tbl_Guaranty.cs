@@ -14,8 +14,17 @@ namespace Test4.Models
     
     public partial class Tbl_Guaranty
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Tbl_Guaranty()
+        {
+            this.Tbl_Product = new HashSet<Tbl_Product>();
+        }
+    
         public int GuarantyID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Product> Tbl_Product { get; set; }
     }
 }

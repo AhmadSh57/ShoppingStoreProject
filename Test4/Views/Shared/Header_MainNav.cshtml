@@ -94,7 +94,7 @@
                         <ul class="menu-ul mega-menu-level-one">
 
                             @{
-                                WebStoreDbEntities2 DataBase = new WebStoreDbEntities2();
+                                WebStoreDbEntities3 DataBase = new WebStoreDbEntities3();
 
                                 IQueryable<Tbl_Category> QMainTitle = DataBase.Tbl_Category.Where(i => i.ParentID == 24 && i.CategoryID != 24);
 

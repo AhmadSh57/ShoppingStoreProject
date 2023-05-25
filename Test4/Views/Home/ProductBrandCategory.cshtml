@@ -54,25 +54,27 @@
                                         @item.ProductName
                                     </h2>
                                     <div class="price">
-                                        <del><span>۱۲,۰۰۰,۰۰۰<span>تومان</span></span></del>
-                                        <ins><span>@item.ProductPrice<span>تومان</span></span></ins>
+                                        <del><span>@item.ProductPrice<span>تومان</span></span></del>
+                                        <ins><span><span>@item.ProductOff</span></span></ins>
                                     </div>
                                     <div class="actions">
                                         <ul>
                                             <li class="action-item like">
                                                 <button class="btn btn-light add-product-wishes" type="submit">
-                                                    <i class="fa fa-heart-o"></i>
+                                                    @Html.ActionLink(" ", "ControllerName", new { item.ProductId }, new { @class = "fa fa-heart-o" })
                                                 </button>
                                             </li>
                                             <li class="action-item compare">
                                                 <button class="btn btn-light btn-compare" type="submit">
-                                                    <i class="fa fa-random"></i>
+                                                    @Html.ActionLink(" ", "ControllerName", new { item.ProductId }, new { @class = "fa fa-random" })
                                                 </button>
                                             </li>
                                             <li class="action-item add-to-cart">
-                                                <button class="btn btn-light btn-add-to-cart" type="submit">
-                                                    <i class="fa fa-shopping-cart"></i>
+                                                <button class="btn btn-light btn-add-to-cart">
+                                                    @Html.ActionLink(" ", "ControllerName", new { item.ProductId }, new { @class = "fa fa-shopping-cart" })
                                                 </button>
+
+
                                             </li>
                                         </ul>
                                     </div>

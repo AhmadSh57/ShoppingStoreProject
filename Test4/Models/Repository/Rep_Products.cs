@@ -8,7 +8,7 @@ namespace Test4.Models.Repository
 {
     public class Rep_Products
     {
-        WebStoreDbEntities2 DataBase = new WebStoreDbEntities2();
+        WebStoreDbEntities3 DataBase = new WebStoreDbEntities3();
 
         public List<VM_Products_Pics> ProductByBrandCategory(int ProductBrandCategoryId)
         {
@@ -43,7 +43,7 @@ namespace Test4.Models.Repository
 
                                where ProductBrandCategory.CatID_FK == ProductBrandCategoryId
 
-                               select new VM_Products_Pics { PicName = Picture.PicName, ProductName = Product.ProductTitle, ProductPrice = Product.Price, ProductSubTitle = Category.CategoryTitle, ProductMainTitle = MainCategory.CategoryTitle }
+                               select new VM_Products_Pics {ProductId = Product.ProductID, PicName = Picture.PicName, ProductName = Product.ProductTitle, ProductPrice = Product.Price,ProductOff = Product.Product_Off, ProductSubTitle = Category.CategoryTitle, ProductMainTitle = MainCategory.CategoryTitle }
                                ); 
             
             return QGetProduct.ToList();

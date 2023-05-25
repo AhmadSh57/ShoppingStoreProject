@@ -18,12 +18,12 @@ namespace Test4.Models
         public string Title { get; set; }
         public string SiteDescription { get; set; }
         public string MetaTags { get; set; }
-        public Nullable<bool> DisplayCommentAfterConfirm { get; set; }
-        public Nullable<bool> DisableComment { get; set; }
-        public Nullable<int> MaxUploadSize { get; set; }
+        public bool DisplayCommentAfterConfirm { get; set; }
+        public bool DisableComment { get; set; }
+        public int MaxUploadSize { get; set; }
         public string ValidFormat { get; set; }
-        public Nullable<int> DisplayProductCount { get; set; }
-        public Nullable<decimal> Tax { get; set; }
-        public Nullable<decimal> ValueAddedPercentage { get; set; }
+        public int DisplayProductCount { get; set; }
+        public decimal Tax { get; set; }
+        public decimal ValueAddedPercentage { get; set; }
     }
 }

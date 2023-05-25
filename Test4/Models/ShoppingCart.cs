@@ -15,11 +15,11 @@ namespace Test4.Models
     public partial class ShoppingCart
     {
         public int ID { get; set; }
-        public Nullable<double> CookieID { get; set; }
-        public Nullable<int> ProductID_FK { get; set; }
-        public Nullable<int> ProductCount { get; set; }
-        public Nullable<System.DateTime> RegisterDate { get; set; }
-        public Nullable<bool> PaymentStatus { get; set; }
+        public double CookieID { get; set; }
+        public int ProductID_FK { get; set; }
+        public int ProductCount { get; set; }
+        public System.DateTime RegisterDate { get; set; }
+        public bool PaymentStatus { get; set; }
     
         public virtual Tbl_Product Tbl_Product { get; set; }
     }

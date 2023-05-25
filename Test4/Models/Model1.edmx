@@ -4,33 +4,33 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WebStoreDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WebStoreDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ShoppingCart">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CookieID" Type="float" />
-          <Property Name="ProductID_FK" Type="int" />
-          <Property Name="ProductCount" Type="int" />
-          <Property Name="RegisterDate" Type="date" />
-          <Property Name="PaymentStatus" Type="bit" />
+          <Property Name="CookieID" Type="float" Nullable="false" />
+          <Property Name="ProductID_FK" Type="int" Nullable="false" />
+          <Property Name="ProductCount" Type="int" Nullable="false" />
+          <Property Name="RegisterDate" Type="date" Nullable="false" />
+          <Property Name="PaymentStatus" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="SiteSetting">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="150" />
-          <Property Name="SiteDescription" Type="nvarchar" MaxLength="500" />
-          <Property Name="MetaTags" Type="nvarchar" MaxLength="250" />
-          <Property Name="DisplayCommentAfterConfirm" Type="bit" />
-          <Property Name="DisableComment" Type="bit" />
-          <Property Name="MaxUploadSize" Type="int" />
-          <Property Name="ValidFormat" Type="nvarchar" MaxLength="250" />
-          <Property Name="DisplayProductCount" Type="int" />
-          <Property Name="Tax" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="ValueAddedPercentage" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="SiteDescription" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="MetaTags" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="DisplayCommentAfterConfirm" Type="bit" Nullable="false" />
+          <Property Name="DisableComment" Type="bit" Nullable="false" />
+          <Property Name="MaxUploadSize" Type="int" Nullable="false" />
+          <Property Name="ValidFormat" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="DisplayProductCount" Type="int" Nullable="false" />
+          <Property Name="Tax" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ValueAddedPercentage" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -47,33 +47,33 @@
             <PropertyRef Name="CategoryID" />
           </Key>
           <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CategoryTitle" Type="nvarchar" MaxLength="100" />
-          <Property Name="ParentID" Type="int" />
+          <Property Name="CategoryTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ParentID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_Comment">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ProductID_FK" Type="int" />
-          <Property Name="CommentID_FK" Type="int" />
-          <Property Name="UserFullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProductID_FK" Type="int" Nullable="false" />
+          <Property Name="CommentID_FK" Type="int" Nullable="false" />
+          <Property Name="UserFullName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="UserEmail" Type="varchar" MaxLength="150" />
-          <Property Name="Content" Type="nvarchar" MaxLength="1000" />
-          <Property Name="IpAddress" Type="nvarchar" MaxLength="50" />
-          <Property Name="RegisterDate" Type="date" />
-          <Property Name="Comment_Confirm" Type="bit" />
-          <Property Name="Comment_IsRead" Type="bit" />
-          <Property Name="Comment_Like" Type="int" />
-          <Property Name="Comment_Dislike" Type="int" />
+          <Property Name="CommentContent" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="IpAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegisterDate" Type="date" Nullable="false" />
+          <Property Name="Comment_Confirm" Type="bit" Nullable="false" />
+          <Property Name="Comment_IsRead" Type="bit" Nullable="false" />
+          <Property Name="Comment_Like" Type="int" Nullable="false" />
+          <Property Name="Comment_Dislike" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_Guaranty">
           <Key>
             <PropertyRef Name="GuarantyID" />
           </Key>
           <Property Name="GuarantyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="100" />
-          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_InstantOffer">
           <Key>
@@ -92,9 +92,9 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="100" />
-          <Property Name="Link" Type="nvarchar" MaxLength="200" />
-          <Property Name="Sort" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Link" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Sort" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_Order">
           <Key>
@@ -103,25 +103,25 @@
           <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserID_FK" Type="int" Nullable="false" />
           <Property Name="Product_FK" Type="int" Nullable="false" />
-          <Property Name="OrderCount" Type="int" />
-          <Property Name="Date" Type="date" />
-          <Property Name="OrderStatus" Type="int" />
-          <Property Name="PostID_FK" Type="int" />
+          <Property Name="OrderCount" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="OrderStatus" Type="int" Nullable="false" />
+          <Property Name="PostID_FK" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_Pictures">
           <Key>
             <PropertyRef Name="PicId" />
           </Key>
           <Property Name="PicId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PicName" Type="nvarchar" MaxLength="250" />
+          <Property Name="PicName" Type="nvarchar" MaxLength="250" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_Post">
           <Key>
             <PropertyRef Name="PostID" />
           </Key>
           <Property Name="PostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="100" />
-          <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_Product">
           <Key>
@@ -131,43 +131,43 @@
           <Property Name="ProductTitle" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="ProductEnglishTitle" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="AvailaibleCout" Type="int" />
-          <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="RegisterDate" Type="date" />
-          <Property Name="Product_Off" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="Visit" Type="float" />
-          <Property Name="Product_Like" Type="float" />
-          <Property Name="Product_Dislike" Type="float" />
-          <Property Name="UserRegisterID_FK" Type="int" />
-          <Property Name="GurantyID_FK" Type="int" />
+          <Property Name="AvailaibleCout" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RegisterDate" Type="date" Nullable="false" />
+          <Property Name="Product_Off" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Visit" Type="float" Nullable="false" />
+          <Property Name="Product_Like" Type="float" Nullable="false" />
+          <Property Name="Product_Dislike" Type="float" Nullable="false" />
+          <Property Name="UserRegisterID_FK" Type="int" Nullable="false" />
+          <Property Name="GurantyID_FK" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_ProductImage">
           <Key>
             <PropertyRef Name="ImageID" />
           </Key>
           <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PicID_FK" Type="int" />
-          <Property Name="ProductID_FK" Type="int" />
+          <Property Name="PicID_FK" Type="int" Nullable="false" />
+          <Property Name="ProductID_FK" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_Prouducts_Categories">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CatID_FK" Type="int" />
-          <Property Name="ProductID_FK" Type="int" />
+          <Property Name="CatID_FK" Type="int" Nullable="false" />
+          <Property Name="ProductID_FK" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_SliderImage">
           <Key>
             <PropertyRef Name="ImageID" />
           </Key>
           <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ImageName" Type="nvarchar" MaxLength="200" />
-          <Property Name="ImageCaption" Type="nvarchar" MaxLength="100" />
-          <Property Name="ImageText" Type="nvarchar" MaxLength="150" />
-          <Property Name="Link" Type="varchar" MaxLength="200" />
-          <Property Name="Sort" Type="int" />
-          <Property Name="CompanyName" Type="varchar" MaxLength="200" />
+          <Property Name="ImageName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="ImageCaption" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ImageText" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Link" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_User">
           <Key>
@@ -177,21 +177,21 @@
           <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Birthdate" Type="date" Nullable="false" />
           <Property Name="Mobile" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="TellPhone" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Province" Type="nvarchar" MaxLength="80" />
-          <Property Name="City" Type="nvarchar" MaxLength="80" />
+          <Property Name="Province" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="80" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="PostalCode" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="UserPic" Type="nvarchar" MaxLength="50" />
-          <Property Name="RegisterDate" Type="datetime" />
-          <Property Name="Gender" Type="bit" />
-          <Property Name="AccessLevelName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserPic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegisterDate" Type="datetime" Nullable="false" />
+          <Property Name="Gender" Type="bit" Nullable="false" />
+          <Property Name="AccessLevelName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_ShoppingCart_Tbl_Product">
-          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="1" />
           <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Product">
@@ -203,7 +203,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_Category_Products_Tbl_Category">
-          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="0..1" />
+          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="1" />
           <End Role="Tbl_Prouducts_Categories" Type="Self.Tbl_Prouducts_Categories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Category">
@@ -215,7 +215,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_Category_Products_Tbl_Product">
-          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="1" />
           <End Role="Tbl_Prouducts_Categories" Type="Self.Tbl_Prouducts_Categories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Product">
@@ -227,7 +227,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_Category_Tbl_Category">
-          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="0..1" />
+          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="1" />
           <End Role="Tbl_Category1" Type="Self.Tbl_Category" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Category">
@@ -239,7 +239,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_Comment_Tbl_Comment">
-          <End Role="Tbl_Comment" Type="Self.Tbl_Comment" Multiplicity="0..1" />
+          <End Role="Tbl_Comment" Type="Self.Tbl_Comment" Multiplicity="1" />
           <End Role="Tbl_Comment1" Type="Self.Tbl_Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Comment">
@@ -251,7 +251,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_Comment_Tbl_Product">
-          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="1" />
           <End Role="Tbl_Comment" Type="Self.Tbl_Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Product">
@@ -263,7 +263,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_Order_Tbl_Post">
-          <End Role="Tbl_Post" Type="Self.Tbl_Post" Multiplicity="0..1" />
+          <End Role="Tbl_Post" Type="Self.Tbl_Post" Multiplicity="1" />
           <End Role="Tbl_Order" Type="Self.Tbl_Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Post">
@@ -298,8 +298,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Tbl_Product_Tbl_Guaranty">
+          <End Role="Tbl_Guaranty" Type="Self.Tbl_Guaranty" Multiplicity="1" />
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Guaranty">
+              <PropertyRef Name="GuarantyID" />
+            </Principal>
+            <Dependent Role="Tbl_Product">
+              <PropertyRef Name="GurantyID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Tbl_ProductsPictures_dbo_Tbl_Pictures">
-          <End Role="Tbl_Pictures" Type="Self.Tbl_Pictures" Multiplicity="0..1" />
+          <End Role="Tbl_Pictures" Type="Self.Tbl_Pictures" Multiplicity="1" />
           <End Role="Tbl_ProductImage" Type="Self.Tbl_ProductImage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Pictures">
@@ -311,7 +323,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_ProductsPictures_Tbl_Products">
-          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="1" />
           <End Role="Tbl_ProductImage" Type="Self.Tbl_ProductImage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Product">
@@ -375,6 +387,10 @@
             <End Role="Tbl_User" EntitySet="Tbl_User" />
             <End Role="Tbl_Order" EntitySet="Tbl_Order" />
           </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Product_Tbl_Guaranty" Association="Self.FK_Tbl_Product_Tbl_Guaranty">
+            <End Role="Tbl_Guaranty" EntitySet="Tbl_Guaranty" />
+            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
+          </AssociationSet>
           <AssociationSet Name="FK_Tbl_ProductsPictures_dbo_Tbl_Pictures" Association="Self.FK_Tbl_ProductsPictures_dbo_Tbl_Pictures">
             <End Role="Tbl_Pictures" EntitySet="Tbl_Pictures" />
             <End Role="Tbl_ProductImage" EntitySet="Tbl_ProductImage" />
@@ -384,8 +400,7 @@
             <End Role="Tbl_ProductImage" EntitySet="Tbl_ProductImage" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WebStoreDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -394,11 +409,11 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CookieID" Type="Double" />
-          <Property Name="ProductID_FK" Type="Int32" />
-          <Property Name="ProductCount" Type="Int32" />
-          <Property Name="RegisterDate" Type="DateTime" Precision="0" />
-          <Property Name="PaymentStatus" Type="Boolean" />
+          <Property Name="CookieID" Type="Double" Nullable="false" />
+          <Property Name="ProductID_FK" Type="Int32" Nullable="false" />
+          <Property Name="ProductCount" Type="Int32" Nullable="false" />
+          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PaymentStatus" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Tbl_Product" Relationship="Self.FK_ShoppingCart_Tbl_Product" FromRole="ShoppingCart" ToRole="Tbl_Product" />
         </EntityType>
         <EntityType Name="SiteSetting">
@@ -406,16 +421,16 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="SiteDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="MetaTags" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="DisplayCommentAfterConfirm" Type="Boolean" />
-          <Property Name="DisableComment" Type="Boolean" />
-          <Property Name="MaxUploadSize" Type="Int32" />
-          <Property Name="ValidFormat" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="DisplayProductCount" Type="Int32" />
-          <Property Name="Tax" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="ValueAddedPercentage" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SiteDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MetaTags" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DisplayCommentAfterConfirm" Type="Boolean" Nullable="false" />
+          <Property Name="DisableComment" Type="Boolean" Nullable="false" />
+          <Property Name="MaxUploadSize" Type="Int32" Nullable="false" />
+          <Property Name="ValidFormat" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DisplayProductCount" Type="Int32" Nullable="false" />
+          <Property Name="Tax" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ValueAddedPercentage" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -432,8 +447,8 @@
             <PropertyRef Name="CategoryID" />
           </Key>
           <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CategoryTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ParentID" Type="Int32" />
+          <Property Name="CategoryTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParentID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Tbl_Prouducts_Categories" Relationship="Self.FK_Tbl_Category_Products_Tbl_Category" FromRole="Tbl_Category" ToRole="Tbl_Prouducts_Categories" />
           <NavigationProperty Name="Tbl_Category1" Relationship="Self.FK_Tbl_Category_Tbl_Category" FromRole="Tbl_Category" ToRole="Tbl_Category1" />
           <NavigationProperty Name="Tbl_Category2" Relationship="Self.FK_Tbl_Category_Tbl_Category" FromRole="Tbl_Category1" ToRole="Tbl_Category" />
@@ -443,17 +458,17 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductID_FK" Type="Int32" />
-          <Property Name="CommentID_FK" Type="Int32" />
-          <Property Name="UserFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProductID_FK" Type="Int32" Nullable="false" />
+          <Property Name="CommentID_FK" Type="Int32" Nullable="false" />
+          <Property Name="UserFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Content" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RegisterDate" Type="DateTime" Precision="0" />
-          <Property Name="Comment_Confirm" Type="Boolean" />
-          <Property Name="Comment_IsRead" Type="Boolean" />
-          <Property Name="Comment_Like" Type="Int32" />
-          <Property Name="Comment_Dislike" Type="Int32" />
+          <Property Name="CommentContent" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Comment_Confirm" Type="Boolean" Nullable="false" />
+          <Property Name="Comment_IsRead" Type="Boolean" Nullable="false" />
+          <Property Name="Comment_Like" Type="Int32" Nullable="false" />
+          <Property Name="Comment_Dislike" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Tbl_Comment1" Relationship="Self.FK_Tbl_Comment_Tbl_Comment" FromRole="Tbl_Comment" ToRole="Tbl_Comment1" />
           <NavigationProperty Name="Tbl_Comment2" Relationship="Self.FK_Tbl_Comment_Tbl_Comment" FromRole="Tbl_Comment1" ToRole="Tbl_Comment" />
           <NavigationProperty Name="Tbl_Product" Relationship="Self.FK_Tbl_Comment_Tbl_Product" FromRole="Tbl_Comment" ToRole="Tbl_Product" />
@@ -463,8 +478,9 @@
             <PropertyRef Name="GuarantyID" />
           </Key>
           <Property Name="GuarantyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Tbl_Product" Relationship="WebStoreDbModel.FK_Tbl_Product_Tbl_Guaranty" FromRole="Tbl_Guaranty" ToRole="Tbl_Product" />
         </EntityType>
         <EntityType Name="Tbl_InstantOffer">
           <Key>
@@ -483,9 +499,9 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Link" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Sort" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Link" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_Order">
           <Key>
@@ -494,10 +510,10 @@
           <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserID_FK" Type="Int32" Nullable="false" />
           <Property Name="Product_FK" Type="Int32" Nullable="false" />
-          <Property Name="OrderCount" Type="Int32" />
-          <Property Name="Date" Type="DateTime" Precision="0" />
-          <Property Name="OrderStatus" Type="Int32" />
-          <Property Name="PostID_FK" Type="Int32" />
+          <Property Name="OrderCount" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="OrderStatus" Type="Int32" Nullable="false" />
+          <Property Name="PostID_FK" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Tbl_Post" Relationship="Self.FK_Tbl_Order_Tbl_Post" FromRole="Tbl_Order" ToRole="Tbl_Post" />
           <NavigationProperty Name="Tbl_Product" Relationship="Self.FK_Tbl_Order_Tbl_Product" FromRole="Tbl_Order" ToRole="Tbl_Product" />
           <NavigationProperty Name="Tbl_User" Relationship="Self.FK_Tbl_Order_Tbl_User" FromRole="Tbl_Order" ToRole="Tbl_User" />
@@ -507,7 +523,7 @@
             <PropertyRef Name="PicId" />
           </Key>
           <Property Name="PicId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PicName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PicName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Tbl_ProductImage" Relationship="Self.FK_Tbl_ProductsPictures_dbo_Tbl_Pictures" FromRole="Tbl_Pictures" ToRole="Tbl_ProductImage" />
         </EntityType>
         <EntityType Name="Tbl_Post">
@@ -515,8 +531,8 @@
             <PropertyRef Name="PostID" />
           </Key>
           <Property Name="PostID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="Tbl_Order" Relationship="Self.FK_Tbl_Order_Tbl_Post" FromRole="Tbl_Post" ToRole="Tbl_Order" />
         </EntityType>
         <EntityType Name="Tbl_Product">
@@ -527,28 +543,29 @@
           <Property Name="ProductTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ProductEnglishTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="AvailaibleCout" Type="Int32" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="RegisterDate" Type="DateTime" Precision="0" />
-          <Property Name="Product_Off" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Visit" Type="Double" />
-          <Property Name="Product_Like" Type="Double" />
-          <Property Name="Product_Dislike" Type="Double" />
-          <Property Name="UserRegisterID_FK" Type="Int32" />
-          <Property Name="GurantyID_FK" Type="Int32" />
+          <Property Name="AvailaibleCout" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Product_Off" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Visit" Type="Double" Nullable="false" />
+          <Property Name="Product_Like" Type="Double" Nullable="false" />
+          <Property Name="Product_Dislike" Type="Double" Nullable="false" />
+          <Property Name="UserRegisterID_FK" Type="Int32" Nullable="false" />
+          <Property Name="GurantyID_FK" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ShoppingCart" Relationship="Self.FK_ShoppingCart_Tbl_Product" FromRole="Tbl_Product" ToRole="ShoppingCart" />
           <NavigationProperty Name="Tbl_Comment" Relationship="Self.FK_Tbl_Comment_Tbl_Product" FromRole="Tbl_Product" ToRole="Tbl_Comment" />
           <NavigationProperty Name="Tbl_Order" Relationship="Self.FK_Tbl_Order_Tbl_Product" FromRole="Tbl_Product" ToRole="Tbl_Order" />
           <NavigationProperty Name="Tbl_Prouducts_Categories" Relationship="Self.FK_Tbl_Category_Products_Tbl_Product" FromRole="Tbl_Product" ToRole="Tbl_Prouducts_Categories" />
           <NavigationProperty Name="Tbl_ProductImage" Relationship="Self.FK_Tbl_ProductsPictures_Tbl_Products" FromRole="Tbl_Product" ToRole="Tbl_ProductImage" />
+          <NavigationProperty Name="Tbl_Guaranty" Relationship="WebStoreDbModel.FK_Tbl_Product_Tbl_Guaranty" FromRole="Tbl_Product" ToRole="Tbl_Guaranty" />
         </EntityType>
         <EntityType Name="Tbl_ProductImage">
           <Key>
             <PropertyRef Name="ImageID" />
           </Key>
           <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PicID_FK" Type="Int32" />
-          <Property Name="ProductID_FK" Type="Int32" />
+          <Property Name="PicID_FK" Type="Int32" Nullable="false" />
+          <Property Name="ProductID_FK" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Tbl_Pictures" Relationship="Self.FK_Tbl_ProductsPictures_dbo_Tbl_Pictures" FromRole="Tbl_ProductImage" ToRole="Tbl_Pictures" />
           <NavigationProperty Name="Tbl_Product" Relationship="Self.FK_Tbl_ProductsPictures_Tbl_Products" FromRole="Tbl_ProductImage" ToRole="Tbl_Product" />
         </EntityType>
@@ -557,8 +574,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CatID_FK" Type="Int32" />
-          <Property Name="ProductID_FK" Type="Int32" />
+          <Property Name="CatID_FK" Type="Int32" Nullable="false" />
+          <Property Name="ProductID_FK" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Tbl_Category" Relationship="Self.FK_Tbl_Category_Products_Tbl_Category" FromRole="Tbl_Prouducts_Categories" ToRole="Tbl_Category" />
           <NavigationProperty Name="Tbl_Product" Relationship="Self.FK_Tbl_Category_Products_Tbl_Product" FromRole="Tbl_Prouducts_Categories" ToRole="Tbl_Product" />
         </EntityType>
@@ -567,12 +584,12 @@
             <PropertyRef Name="ImageID" />
           </Key>
           <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ImageName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="ImageCaption" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ImageText" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Link" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Sort" Type="Int32" />
-          <Property Name="CompanyName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ImageName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImageCaption" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImageText" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Link" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_User">
           <Key>
@@ -582,22 +599,22 @@
           <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Birthdate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TellPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Province" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
-          <Property Name="City" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PostalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserPic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RegisterDate" Type="DateTime" Precision="3" />
-          <Property Name="Gender" Type="Boolean" />
-          <Property Name="AccessLevelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserPic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Gender" Type="Boolean" Nullable="false" />
+          <Property Name="AccessLevelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Tbl_Order" Relationship="Self.FK_Tbl_Order_Tbl_User" FromRole="Tbl_User" ToRole="Tbl_Order" />
         </EntityType>
         <Association Name="FK_ShoppingCart_Tbl_Product">
-          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="1" />
           <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Product">
@@ -609,7 +626,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_Category_Products_Tbl_Category">
-          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="0..1" />
+          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="1" />
           <End Role="Tbl_Prouducts_Categories" Type="Self.Tbl_Prouducts_Categories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Category">
@@ -621,7 +638,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_Category_Tbl_Category">
-          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="0..1" />
+          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="1" />
           <End Role="Tbl_Category1" Type="Self.Tbl_Category" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Category">
@@ -633,7 +650,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_Comment_Tbl_Comment">
-          <End Role="Tbl_Comment" Type="Self.Tbl_Comment" Multiplicity="0..1" />
+          <End Role="Tbl_Comment" Type="Self.Tbl_Comment" Multiplicity="1" />
           <End Role="Tbl_Comment1" Type="Self.Tbl_Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Comment">
@@ -645,7 +662,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_Comment_Tbl_Product">
-          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="1" />
           <End Role="Tbl_Comment" Type="Self.Tbl_Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Product">
@@ -657,7 +674,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_Order_Tbl_Post">
-          <End Role="Tbl_Post" Type="Self.Tbl_Post" Multiplicity="0..1" />
+          <End Role="Tbl_Post" Type="Self.Tbl_Post" Multiplicity="1" />
           <End Role="Tbl_Order" Type="Self.Tbl_Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Post">
@@ -693,7 +710,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_ProductsPictures_dbo_Tbl_Pictures">
-          <End Role="Tbl_Pictures" Type="Self.Tbl_Pictures" Multiplicity="0..1" />
+          <End Role="Tbl_Pictures" Type="Self.Tbl_Pictures" Multiplicity="1" />
           <End Role="Tbl_ProductImage" Type="Self.Tbl_ProductImage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Pictures">
@@ -705,7 +722,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_Category_Products_Tbl_Product">
-          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="1" />
           <End Role="Tbl_Prouducts_Categories" Type="Self.Tbl_Prouducts_Categories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Product">
@@ -717,7 +734,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tbl_ProductsPictures_Tbl_Products">
-          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="0..1" />
+          <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="1" />
           <End Role="Tbl_ProductImage" Type="Self.Tbl_ProductImage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tbl_Product">
@@ -728,7 +745,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="WebStoreDbEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="WebStoreDbEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ShoppingCart" EntityType="Self.ShoppingCart" />
           <EntitySet Name="SiteSetting" EntityType="Self.SiteSetting" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -789,13 +806,29 @@
             <End Role="Tbl_Product" EntitySet="Tbl_Product" />
             <End Role="Tbl_ProductImage" EntitySet="Tbl_ProductImage" />
           </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Product_Tbl_Guaranty" Association="WebStoreDbModel.FK_Tbl_Product_Tbl_Guaranty">
+            <End Role="Tbl_Guaranty" EntitySet="Tbl_Guaranty" />
+            <End Role="Tbl_Product" EntitySet="Tbl_Product" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Tbl_Product_Tbl_Guaranty">
+          <End Type="WebStoreDbModel.Tbl_Guaranty" Role="Tbl_Guaranty" Multiplicity="1" />
+          <End Type="WebStoreDbModel.Tbl_Product" Role="Tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Guaranty">
+              <PropertyRef Name="GuarantyID" />
+            </Principal>
+            <Dependent Role="Tbl_Product">
+              <PropertyRef Name="GurantyID_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WebStoreDbModelStoreContainer" CdmEntityContainer="WebStoreDbEntities2">
+        <EntityContainerMapping StorageEntityContainer="WebStoreDbModelStoreContainer" CdmEntityContainer="WebStoreDbEntities3">
           <EntitySetMapping Name="ShoppingCart">
             <EntityTypeMapping TypeName="WebStoreDbModel.ShoppingCart">
               <MappingFragment StoreEntitySet="ShoppingCart">
@@ -853,7 +886,7 @@
                 <ScalarProperty Name="CommentID_FK" ColumnName="CommentID_FK" />
                 <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
                 <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
-                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="CommentContent" ColumnName="CommentContent" />
                 <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
                 <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
                 <ScalarProperty Name="Comment_Confirm" ColumnName="Comment_Confirm" />

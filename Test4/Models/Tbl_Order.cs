@@ -17,10 +17,10 @@ namespace Test4.Models
         public int OrderID { get; set; }
         public int UserID_FK { get; set; }
         public int Product_FK { get; set; }
-        public Nullable<int> OrderCount { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<int> OrderStatus { get; set; }
-        public Nullable<int> PostID_FK { get; set; }
+        public int OrderCount { get; set; }
+        public System.DateTime Date { get; set; }
+        public int OrderStatus { get; set; }
+        public int PostID_FK { get; set; }
     
         public virtual Tbl_Post Tbl_Post { get; set; }
         public virtual Tbl_Product Tbl_Product { get; set; }

@@ -19,7 +19,7 @@ namespace Test4.Models
         public string ImageCaption { get; set; }
         public string ImageText { get; set; }
         public string Link { get; set; }
-        public Nullable<int> Sort { get; set; }
+        public int Sort { get; set; }
         public string CompanyName { get; set; }
     }
 }

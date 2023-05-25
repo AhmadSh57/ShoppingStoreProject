@@ -15,8 +15,8 @@ namespace Test4.Models
     public partial class Tbl_Prouducts_Categories
     {
         public int ID { get; set; }
-        public Nullable<int> CatID_FK { get; set; }
-        public Nullable<int> ProductID_FK { get; set; }
+        public int CatID_FK { get; set; }
+        public int ProductID_FK { get; set; }
     
         public virtual Tbl_Category Tbl_Category { get; set; }
         public virtual Tbl_Product Tbl_Product { get; set; }

@@ -13,10 +13,10 @@ namespace Test4.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WebStoreDbEntities2 : DbContext
+    public partial class WebStoreDbEntities3 : DbContext
     {
-        public WebStoreDbEntities2()
-            : base("name=WebStoreDbEntities2")
+        public WebStoreDbEntities3()
+            : base("name=WebStoreDbEntities3")
         {
         }
     
