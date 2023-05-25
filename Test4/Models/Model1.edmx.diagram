@@ -16,9 +16,9 @@
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Order" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Pictures" Width="1.5" PointX="3.75" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Post" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Product" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Product" Width="2.375" PointX="0.5" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_ProductImage" Width="1.5" PointX="6" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Prouducts_Categories" Width="1.5" PointX="6" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Prouducts_Categories" Width="2" PointX="5.5" PointY="13.125" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_SliderImage" Width="1.5" PointX="10.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_User" Width="1.5" PointX="3.75" PointY="15.25" IsExpanded="true" />
         <AssociationConnector Association="WebStoreDbModel.FK_ShoppingCart_Tbl_Product" ManuallyRouted="false" />

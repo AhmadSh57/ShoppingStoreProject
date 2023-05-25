@@ -21,6 +21,16 @@ namespace Test4.Models.Repository
 
                                join
 
+                               Category in DataBase.Tbl_Category
+                               on ProductBrandCategory.CatID_FK equals Category.CategoryID
+
+                               join
+
+                               MainCategory in DataBase.Tbl_Category
+                               on Category.ParentID equals MainCategory.CategoryID
+
+                               join
+
                                 ProductImage in DataBase.Tbl_ProductImage
                                on Product.ProductID equals ProductImage.ProductID_FK
 
@@ -28,10 +38,13 @@ namespace Test4.Models.Repository
 
                                Picture in DataBase.Tbl_Pictures
                                on ProductImage.PicID_FK equals Picture.PicId
+
+
+
                                where ProductBrandCategory.CatID_FK == ProductBrandCategoryId
 
-                               select new VM_Products_Pics { PicName = Picture.PicName, ProductName = Product.ProductTitle }
-                               );
+                               select new VM_Products_Pics { PicName = Picture.PicName, ProductName = Product.ProductTitle, ProductPrice = Product.Price, ProductSubTitle = Category.CategoryTitle, ProductMainTitle = MainCategory.CategoryTitle }
+                               ); 
             
             return QGetProduct.ToList();
         }

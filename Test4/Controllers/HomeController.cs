@@ -25,9 +25,6 @@ namespace Test4.Controllers
             return View(_Rep_Products.ProductByBrandCategory(ProductBrandCategoryId));
         }
 
-
-
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page";
