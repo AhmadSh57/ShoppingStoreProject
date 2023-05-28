@@ -148,7 +148,7 @@ namespace Test4.Models.Repository
                                     on ProductPic.PicID_FK equals Pic.PicId
 
                                     orderby Product.Sales descending
-                                    select new VM_Products_Pics { ProductId = Product.ProductID, ProductName = Product.ProductTitle, PicName = Pic.PicName ,ProductPrice = Product.Price}).Take(DisplayProductCount);
+                                    select new VM_Products_Pics { ProductId = Product.ProductID, ProductName = Product.ProductTitle, PicName = Pic.PicName ,ProductPrice = Product.Price,ProductOff = Product.Product_Off}).Take(DisplayProductCount);
             return QueryBestSelling.ToList();
 
         }
