@@ -37,6 +37,7 @@ namespace Test4.Models
         public double Product_Dislike { get; set; }
         public int UserRegisterID_FK { get; set; }
         public int GurantyID_FK { get; set; }
+        public long Sales { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShoppingCart> ShoppingCart { get; set; }

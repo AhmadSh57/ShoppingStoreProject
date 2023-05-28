@@ -14,17 +14,31 @@
     <!-- Header Main Nav-------------------------------->
     @Html.Partial("Header_MainNav")
 
-    <!--required---------------------------------------->
+    <!--BreadCrumb-->
+    @RenderSection("BreadCrumb", required: false)
+
+
+    <!--Products Category By Brand Category-->
+    @RenderSection("ProductByBrandSlider", required: false)
+
+    <!--Header_MainSlider---------------------------------------->
+    @RenderSection("SuggestedProducts", required: false)
+
+    <!--Header_MainSlider---------------------------------------->
     @RenderSection("Header_MainSlider", required: false)
 
+    <!--Best Selling Products -->
+    @RenderSection("BestSellingProducts", required: false)
+
     <!--New Products Slider----------------------------->
-    @RenderSection("NewProductsSlider",required:false)
+    @RenderSection("NewProductsSlider", required: false)
 
     <!--Special Products Slider------------------------->
-    @RenderSection("SpecialProductsSlider", required:false)
+    @RenderSection("SpecialProductsSlider", required: false)
 
     @RenderBody()
 
+    @RenderSection("scripts", required: false);
     <!-- footer---------------------------------------->
     <footer class="footer-main-site">
         <section class="d-block d-xl-block d-lg-block d-md-block d-sm-block order-1">

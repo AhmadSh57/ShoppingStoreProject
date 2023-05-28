@@ -15,15 +15,30 @@ namespace Test4.Controllers
         Rep_Products _Rep_Products = new Rep_Products();
 
 
+        /*Main Page*/
         public ActionResult Index()
         {
             return View();
         }
 
+        /*Product Brand Category*/
         public ActionResult ProductBrandCategory(int ProductBrandCategoryId)
         {
             return View(_Rep_Products.ProductByBrandCategory(ProductBrandCategoryId));
         }
+
+        /*Product Details*/
+        public ActionResult ProductDetails(int ProductId)
+        {
+            return View(_Rep_Products.ProductDetails(ProductId));
+        }
+
+
+
+
+
+
+
 
         public ActionResult About()
         {

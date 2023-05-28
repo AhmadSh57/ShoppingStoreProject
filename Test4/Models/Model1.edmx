@@ -140,6 +140,7 @@
           <Property Name="Product_Dislike" Type="float" Nullable="false" />
           <Property Name="UserRegisterID_FK" Type="int" Nullable="false" />
           <Property Name="GurantyID_FK" Type="int" Nullable="false" />
+          <Property Name="Sales" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_ProductImage">
           <Key>
@@ -558,6 +559,7 @@
           <NavigationProperty Name="Tbl_Prouducts_Categories" Relationship="Self.FK_Tbl_Category_Products_Tbl_Product" FromRole="Tbl_Product" ToRole="Tbl_Prouducts_Categories" />
           <NavigationProperty Name="Tbl_ProductImage" Relationship="Self.FK_Tbl_ProductsPictures_Tbl_Products" FromRole="Tbl_Product" ToRole="Tbl_ProductImage" />
           <NavigationProperty Name="Tbl_Guaranty" Relationship="WebStoreDbModel.FK_Tbl_Product_Tbl_Guaranty" FromRole="Tbl_Product" ToRole="Tbl_Guaranty" />
+          <Property Name="Sales" Type="Int64" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_ProductImage">
           <Key>
@@ -961,6 +963,7 @@
           <EntitySetMapping Name="Tbl_Product">
             <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_Product">
               <MappingFragment StoreEntitySet="Tbl_Product">
+                <ScalarProperty Name="Sales" ColumnName="Sales" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductTitle" ColumnName="ProductTitle" />
                 <ScalarProperty Name="ProductEnglishTitle" ColumnName="ProductEnglishTitle" />

@@ -3,8 +3,15 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using Test4.Models.Repository;
+@using Test4.Models.ViewModels;
 
-@using Test4.Models
+@{
+
+    //Test4.Models.Repository.Rep_Products R_Product = new Test4.Models.Repository.Rep_Products();
+    Rep_Products Rep_Product = new Rep_Products();
+}
+
 
 
 
@@ -22,6 +29,75 @@
 
 <!-- New Products Slider--------------------------------->
 @*@Html.Partial("NewProductsSlider", "Home")*@
+
+
+@section BestSellingProducts{
+
+    <div class="col-lg-12 col-md-12 col-xs-12 pr order-1 d-block">
+        <div class="slider-widget-products slider-content-tabs">
+            <div class="widget widget-product card slider-content-tabs">
+                <header class="card-header header-product">
+                    <span class="title-one">کامپیوتر و لپ تاپ</span>
+                    <h3 class="card-title"></h3>
+                </header>
+                <div class="product-carousel owl-carousel owl-theme owl-rtl owl-loaded owl-drag">
+                    <div class="owl-stage-outer">
+                        <div class="owl-stage"
+                             style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1534px;">
+                            @foreach (var Product in Rep_Product.BestSellingProducts(6))
+                            {
+                                <div class="owl-item active tab-item" style="width: 296.75px; margin-left: 10px;">
+                                    <div class="item">
+                                        <a href="#" class="d-block hover-img-link" data-toggle="modal"
+                                           data-target="#exampleModal">
+                                            <img src="/images/slider-product/@Product.PicName" class="img-fluid"
+                                                 alt="">
+                                            <span class="icon-view">
+                                                <strong><i class="fa fa-eye"></i></strong>
+                                            </span>
+                                        </a>
+                                        <h2 class="post-title">
+                                            <a href="#">
+                                                @Product.ProductName
+                                            </a>
+                                        </h2>
+                                        <div class="price">
+                                            <del><span>@Product.ProductPrice<span>تومان</span></span></del>
+                                            <ins><span>@Product.ProductOff<span>تومان</span></span></ins>
+                                        </div>
+                                        <div class="actions">
+                                            <ul>
+                                                <li class="action-item like">
+                                                    <button class="btn btn-light add-product-wishes" type="submit">
+                                                        <i class="fa fa-heart-o"></i>
+                                                    </button>
+                                                </li>
+                                                <li class="action-item compare">
+                                                    <button class="btn btn-light btn-compare" type="submit">
+                                                        <i class="fa fa-random"></i>
+                                                    </button>
+                                                </li>
+                                                <li class="action-item add-to-cart">
+                                                    <button class="btn btn-light btn-add-to-cart" type="submit">
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
 
 @section NewProductsSlider{
 
@@ -42,38 +118,42 @@
                             </div>
                         </div>
                     </section>
-                    <div class="mb-3">
-                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 pt-4 pr">
-                            <div class="card-product-horizontal">
-                                <div class="card-product-horizontal-img">
-                                    <a href="#" class="d-block">
-                                        <img src="/images/slider-product/asus-laptop.jpg">
-                                    </a>
-                                </div>
-                                <div class="card-product-horizontal-content">
-                                    <div class="card-product-horizontal-content-title">
-                                        <a href="#">
-                                            <h3>لپ تاپ ایسوس زِنبوک 14</h3>
+                    @foreach (var item in Rep_Product.NewProducts(6))
+                    {
+
+                        <div class="mb-3">
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-12 pt-4 pr">
+                                <div class="card-product-horizontal">
+                                    <div class="card-product-horizontal-img">
+                                        <a href="#" class="d-block">
+                                            <img src="/images/slider-product/@item.PicName" style="width:100px;height:100px">
                                         </a>
                                     </div>
-                                    <div class="card-product-horizontal-content-price">
-                                        <span class="amount">
-                                            ۴,۲۰۰,۰۰۰
-                                            <span>تومان</span>
-                                        </span>
-                                    </div>
-                                    <div class="card-product-horizontal-content-rate">
-                                        <i class="fa fa-star active"></i>
-                                        <i class="fa fa-star active"></i>
-                                        <i class="fa fa-star active"></i>
-                                        <i class="fa fa-star active"></i>
-                                        <i class="fa fa-star"></i>
+                                    <div class="card-product-horizontal-content">
+                                        <div class="card-product-horizontal-content-title">
+                                            <a href="#">
+                                                <h3>@item.ProductName</h3>
+                                            </a>
+                                        </div>
+                                        <div class="card-product-horizontal-content-price">
+                                            <span class="amount">
+                                                @item.ProductPrice
+                                                <span>تومان</span>
+                                            </span>
+                                        </div>
+                                        <div class="card-product-horizontal-content-rate">
+                                            <i class="fa fa-star active"></i>
+                                            <i class="fa fa-star active"></i>
+                                            <i class="fa fa-star active"></i>
+                                            <i class="fa fa-star active"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </div>
+                        </div>
+                    }
                 </div>
             </div>
         </aside>
@@ -81,6 +161,7 @@
     </div>
 
 }
+@* Best selling products*@
 
 
 <!--SpecialProductsSlider-->
@@ -103,38 +184,42 @@
                             </div>
                         </div>
                     </section>
-                    <div class="mb-3">
-                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 pt-4 pr">
-                            <div class="card-product-horizontal">
-                                <div class="card-product-horizontal-img">
-                                    <a href="#" class="d-block">
-                                        <img src="/images/slider-product/asus-laptop.jpg">
-                                    </a>
-                                </div>
-                                <div class="card-product-horizontal-content">
-                                    <div class="card-product-horizontal-content-title">
-                                        <a href="#">
-                                            <h3>لپ تاپ ایسوس زِنبوک 14</h3>
+                    @foreach (var item in Rep_Product.LastProducts(6))
+                    {
+                        <div class="mb-3">
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-12 pt-4 pr">
+                                <div class="card-product-horizontal">
+                                    <div class="card-product-horizontal-img">
+                                        <a href="#" class="d-block">
+                                            <img src="/images/slider-product/@item.PicName" style="width:100px;height:100px">
                                         </a>
                                     </div>
-                                    <div class="card-product-horizontal-content-price">
-                                        <span class="amount">
-                                            ۴,۲۰۰,۰۰۰
-                                            <span>تومان</span>
-                                        </span>
-                                    </div>
-                                    <div class="card-product-horizontal-content-rate">
-                                        <i class="fa fa-star active"></i>
-                                        <i class="fa fa-star active"></i>
-                                        <i class="fa fa-star active"></i>
-                                        <i class="fa fa-star active"></i>
-                                        <i class="fa fa-star"></i>
+                                    <div class="card-product-horizontal-content">
+                                        <div class="card-product-horizontal-content-title">
+                                            <a href="#">
+                                                <h3>@item.ProductName</h3>
+                                            </a>
+                                        </div>
+                                        <div class="card-product-horizontal-content-price">
+                                            <span class="amount">
+                                                @item.ProductPrice
+                                                <span>تومان</span>
+                                            </span>
+                                        </div>
+                                        <div class="card-product-horizontal-content-rate">
+                                            <i class="fa fa-star active"></i>
+                                            <i class="fa fa-star active"></i>
+                                            <i class="fa fa-star active"></i>
+                                            <i class="fa fa-star active"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </div>
+                        </div>
+                    }
+
                 </div>
             </div>
         </aside>

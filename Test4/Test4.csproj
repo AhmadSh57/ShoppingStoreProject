@@ -480,6 +480,7 @@
     <Content Include="Views\Shared\Header_ResponsiveMenu.cshtml" />
     <Content Include="Views\Shared\Header_UserBasket.cshtml" />
     <Content Include="Views\Home\ProductBrandCategory.cshtml" />
+    <Content Include="Views\Home\ProductDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
