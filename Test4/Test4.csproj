@@ -275,6 +275,13 @@
     <Content Include="images\footer\license\L-2.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\logo.png" />
+    <Content Include="images\mainNav-icon\clothes.png" />
+    <Content Include="images\mainNav-icon\contactUs.png" />
+    <Content Include="images\mainNav-icon\cosmetic.png" />
+    <Content Include="images\mainNav-icon\digitalProducts.png" />
+    <Content Include="images\mainNav-icon\questions.png" />
+    <Content Include="images\mainNav-icon\seller.png" />
+    <Content Include="images\mainNav-icon\stationery.png" />
     <Content Include="images\man.png" />
     <Content Include="images\menu-main\category\child.png" />
     <Content Include="images\menu-main\category\cup.png" />

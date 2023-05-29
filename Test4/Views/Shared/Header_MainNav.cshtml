@@ -1,4 +1,8 @@
-﻿@using Test4.Models;
+﻿
+
+@using Test4.Models.Repository;
+@using Test4.Models.ViewModels;
+@using Test4.Models;
 
 <header class="header-main">
     <div class="container-main">
@@ -95,14 +99,26 @@
                             @{
                                 WebStoreDbEntities3 DataBase = new WebStoreDbEntities3();
 
+                                Rep_MainNav Rep_MainTitle = new Rep_MainNav();
+
                                 IQueryable<Tbl_Category> QMainTitle = DataBase.Tbl_Category.Where(i => i.ParentID == 24 && i.CategoryID != 24);
 
                                 foreach (var MainTitle in QMainTitle)
                                 {
+
+
+                                    foreach (var Pic in Rep_MainTitle.Rep_GetMainTitleIconName())
+                                    {
+                                        if (MainTitle.CategoryID == Pic.NavLinkId)
+                                        {
+                                        <img src="~/images/mainNav-icon/@Pic.NavIconName"  style="width :30px ; height:30px"/>
+
+                                        }
+                                    }
                                     <li id="nav-menu-item" class="menu-item  nav-overlay">
                                         @*Show Main Title In Nav*@
-                                        @{ 
-//var Query  = (from item in DataBase.cate).
+                                        @{
+                                            //var Query  = (from item in DataBase.cate).
                                         }
 
                                         @Html.ActionLink(MainTitle.CategoryTitle, "MainCategory", new { MainTitle.CategoryID }, new { @class = "fs-1 current-link-menu" })

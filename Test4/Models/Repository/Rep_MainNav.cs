@@ -15,17 +15,17 @@ namespace Test4.Models.Repository
             var Query = (
 
                 from MainTitle in DataBase.Tbl_Category
-                join 
-                
+                join
+
                 MainTitleImage in DataBase.Tbl_MainCategory_Image
 
                 on MainTitle.CategoryID equals MainTitleImage.MainCategoryID_FK
-                join 
+                join
 
-                Pic in DataBase.Tbl_Pictures 
+                Pic in DataBase.Tbl_Pictures
                 on MainTitleImage.MainCategoryPic_FK equals Pic.PicId
 
-                select new VM_NavLink { NavIconName = Pic.PicName}
+                select new VM_NavLink { NavLinkId = MainTitle.CategoryID,NavIconName = Pic.PicName }
                          );
 
 
