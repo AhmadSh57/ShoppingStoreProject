@@ -19,6 +19,7 @@ namespace Test4.Models
         {
             this.Tbl_Prouducts_Categories = new HashSet<Tbl_Prouducts_Categories>();
             this.Tbl_Category1 = new HashSet<Tbl_Category>();
+            this.Tbl_MainCategory_Image = new HashSet<Tbl_MainCategory_Image>();
         }
     
         public int CategoryID { get; set; }
@@ -30,5 +31,7 @@ namespace Test4.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Category> Tbl_Category1 { get; set; }
         public virtual Tbl_Category Tbl_Category2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_MainCategory_Image> Tbl_MainCategory_Image { get; set; }
     }
 }

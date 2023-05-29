@@ -99,9 +99,12 @@
 
                                 foreach (var MainTitle in QMainTitle)
                                 {
-                                    <i class="bi bi-x-circle"></i>
                                     <li id="nav-menu-item" class="menu-item  nav-overlay">
                                         @*Show Main Title In Nav*@
+                                        @{ 
+//var Query  = (from item in DataBase.cate).
+                                        }
+
                                         @Html.ActionLink(MainTitle.CategoryTitle, "MainCategory", new { MainTitle.CategoryID }, new { @class = "fs-1 current-link-menu" })
                                         <ul class="sub-menu is-mega-menu mega-menu-level-two">
                                             @{
@@ -125,9 +128,7 @@
                                                         }
 
                                                     </li>
-
                                                 }
-
                                             }
                                         </ul>
 
