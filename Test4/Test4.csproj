@@ -147,6 +147,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Repository\Rep_MainNav.cs" />
     <Compile Include="Models\Repository\Rep_Products.cs" />
     <Compile Include="Models\ShoppingCart.cs">
       <DependentUpon>Model1.tt</DependentUpon>

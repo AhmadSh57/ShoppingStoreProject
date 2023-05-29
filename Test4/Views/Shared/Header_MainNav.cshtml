@@ -92,7 +92,6 @@
                 <div class="d-block">
                     <div class="align-items-center">
                         <ul class="menu-ul mega-menu-level-one">
-
                             @{
                                 WebStoreDbEntities3 DataBase = new WebStoreDbEntities3();
 
@@ -100,11 +99,10 @@
 
                                 foreach (var MainTitle in QMainTitle)
                                 {
-
+                                    <i class="bi bi-x-circle"></i>
                                     <li id="nav-menu-item" class="menu-item  nav-overlay">
                                         @*Show Main Title In Nav*@
                                         @Html.ActionLink(MainTitle.CategoryTitle, "MainCategory", new { MainTitle.CategoryID }, new { @class = "fs-1 current-link-menu" })
-
                                         <ul class="sub-menu is-mega-menu mega-menu-level-two">
                                             @{
                                                 IQueryable<Tbl_Category> QSubTitle = DataBase.Tbl_Category.Where(SubTitle => SubTitle.ParentID == MainTitle.CategoryID);
@@ -113,8 +111,6 @@
                                                     <li class="menu-mega-item menu-item-type-mega-menu">
                                                         @*Show Sub Title In Nav*@
                                                         @Html.ActionLink(SubTitle.CategoryTitle, "SubQuery", new { CatId = SubTitle.CategoryID, CatName = SubTitle.CategoryTitle, MainCat = MainTitle.CategoryTitle }, new { @class = "mega-menu-link" })
-
-
                                                         @{
                                                             IQueryable<Tbl_Category> QProductBrand = DataBase.Tbl_Category.Where(B => B.ParentID == SubTitle.CategoryID);
                                                             foreach (var ProductBrand in QProductBrand)

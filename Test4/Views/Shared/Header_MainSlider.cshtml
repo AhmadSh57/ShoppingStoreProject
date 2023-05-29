@@ -11,8 +11,8 @@
             </ol>
             <div class="carousel-inner" style="height:400px">
                 @*<div class="carousel-item active">
-                        <img src="/images/slider-main/sm-2.jpg" class="d-block w-100" alt="...">
-                    </div>*@
+            <img src="/images/slider-main/sm-2.jpg" class="d-block w-100" alt="...">
+        </div>*@
 
                 @{
                     WebStoreDbEntities3 database = new WebStoreDbEntities3();
@@ -24,26 +24,34 @@
                 }
 
                 @foreach (var item in Query)
-                    {
-                        string AddActiveClass = item.Sort == 1 ? "active":"";
+                {
+                    string AddActiveClass = item.Sort == 1 ? "active" : "";
 
 
                     <div class="carousel-item @AddActiveClass">
-                       
+
                         <a href="@item.Link" type="">
                             <div class="card">
                                 @*target not defined for this link*@
                                 <img src="/images/slider-main/@item.ImageName" class=" active w-100 " style="height:400px" alt="...">
-                                <div class="card-img-overlay ">
-                                    <span class="card-title bg-white rounded-circle mb-4   p-3 ">@item.ImageCaption</span>
+                                <div class="card-img-overlay " >
+                                    @*<span class="card-title bg-white rounded-circle mb-4   p-3 ">@item.ImageCaption</span>
                                     <p class="card-text  text-black mt-4 "><small class="bg-white rounded-circle  p-2">@item.ImageText</small></p>
-                                    <p class="card-text  text-black  "><small class="bg-white rounded-circle  p-2">@item.CompanyName</small></p>
+                                    <p class="card-text  text-black  "><small class="bg-white rounded-circle  p-2">@item.CompanyName</small></p>*@
                                 </div>
                             </div>
                         </a>
                     </div>
                 }
 
+                <div class="card">
+                    <h5 class="card-header">Featured</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="fa fa-angle-left" aria-hidden="true"></span>

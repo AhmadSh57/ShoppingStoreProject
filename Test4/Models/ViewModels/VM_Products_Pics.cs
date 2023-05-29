@@ -14,5 +14,6 @@ namespace Test4.Models.ViewModels
         public string ProductSubTitle { get; set; }
         public decimal ProductPrice { get; set; }
         public decimal  ProductOff { get; set;}
+        public long Sales { get; set; }
     }
 }
