@@ -4,7 +4,7 @@
 @using Test4.Models.ViewModels;
 @using Test4.Models;
 
-<header class="header-main">
+<header class="header-main mb-3">
     <div class="container-main">
         <div class="d-block">
             <section class="h-main-row">
@@ -111,7 +111,7 @@
                                     {
                                         if (MainTitle.CategoryID == Pic.NavLinkId)
                                         {
-                                        <img src="~/images/mainNav-icon/@Pic.NavIconName"  style="width :30px ; height:30px"/>
+                                            <img src="~/images/mainNav-icon/@Pic.NavIconName" style="width :35px ; height:35px" />
 
                                         }
                                     }
@@ -150,19 +150,26 @@
 
 
                                         @*<li class="bg-image">
-                                                <img src="/images/menu-main/digital.png" alt="">
-                                            </li>*@
+                        <img src="/images/menu-main/digital.png" alt="">
+                    </li>*@
                                     </li>
                                 }
                             }
 
 
                             <li id="nav-menu-item" class="menu-item">
+                                <img src="~/images/mainNav-icon/contactUs.png" style="height:35px ; width:35px" />
                                 <a href="/Home/ContactUs" class="current-link-menu">
                                     ارتباط با ما
                                 </a>
                             </li>
 
+                            <li id="nav-menu-item" class="menu-item">
+                                <img src="~/images/mainNav-icon/seller.png" style="height:35px ; width:35px" />
+                                <a href="/Home/ContactUs" class="current-link-menu">
+                                 فروشنده شو
+                                </a>
+                            </li>
                             <!--Basket-->
                             @Html.Partial("Header_UserBasket")
                             <!--Basket-->

@@ -178,6 +178,14 @@
           <Property Name="Sort" Type="int" Nullable="false" />
           <Property Name="CompanyName" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
+        <EntityType Name="Tbl_SubTitle_image">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId_FK" Type="int" Nullable="false" />
+          <Property Name="CategoryPic_FK" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Tbl_User">
           <Key>
             <PropertyRef Name="UserID" />
@@ -367,6 +375,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Tbl_SubTitle_image_Tbl_Category">
+          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="1" />
+          <End Role="Tbl_SubTitle_image" Type="Self.Tbl_SubTitle_image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Tbl_SubTitle_image">
+              <PropertyRef Name="CategoryId_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_SubTitle_image_Tbl_Pictures">
+          <End Role="Tbl_Pictures" Type="Self.Tbl_Pictures" Multiplicity="1" />
+          <End Role="Tbl_SubTitle_image" Type="Self.Tbl_SubTitle_image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Pictures">
+              <PropertyRef Name="PicId" />
+            </Principal>
+            <Dependent Role="Tbl_SubTitle_image">
+              <PropertyRef Name="CategoryPic_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="WebStoreDbModelStoreContainer">
           <EntitySet Name="ShoppingCart" EntityType="Self.ShoppingCart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SiteSetting" EntityType="Self.SiteSetting" Schema="dbo" store:Type="Tables" />
@@ -384,6 +416,7 @@
           <EntitySet Name="Tbl_ProductImage" EntityType="Self.Tbl_ProductImage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Prouducts_Categories" EntityType="Self.Tbl_Prouducts_Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_SliderImage" EntityType="Self.Tbl_SliderImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_SubTitle_image" EntityType="Self.Tbl_SubTitle_image" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_User" EntityType="Self.Tbl_User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ShoppingCart_Tbl_Product" Association="Self.FK_ShoppingCart_Tbl_Product">
             <End Role="Tbl_Product" EntitySet="Tbl_Product" />
@@ -441,6 +474,14 @@
             <End Role="Tbl_Product" EntitySet="Tbl_Product" />
             <End Role="Tbl_ProductImage" EntitySet="Tbl_ProductImage" />
           </AssociationSet>
+          <AssociationSet Name="FK_Tbl_SubTitle_image_Tbl_Category" Association="Self.FK_Tbl_SubTitle_image_Tbl_Category">
+            <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+            <End Role="Tbl_SubTitle_image" EntitySet="Tbl_SubTitle_image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_SubTitle_image_Tbl_Pictures" Association="Self.FK_Tbl_SubTitle_image_Tbl_Pictures">
+            <End Role="Tbl_Pictures" EntitySet="Tbl_Pictures" />
+            <End Role="Tbl_SubTitle_image" EntitySet="Tbl_SubTitle_image" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -495,6 +536,7 @@
           <NavigationProperty Name="Tbl_Category1" Relationship="Self.FK_Tbl_Category_Tbl_Category" FromRole="Tbl_Category" ToRole="Tbl_Category1" />
           <NavigationProperty Name="Tbl_Category2" Relationship="Self.FK_Tbl_Category_Tbl_Category" FromRole="Tbl_Category1" ToRole="Tbl_Category" />
           <NavigationProperty Name="Tbl_MainCategory_Image" Relationship="WebStoreDbModel.FK_Tbl_MainCategory_Image_Tbl_Category" FromRole="Tbl_Category" ToRole="Tbl_MainCategory_Image" />
+          <NavigationProperty Name="Tbl_SubTitle_image" Relationship="WebStoreDbModel.FK_Tbl_SubTitle_image_Tbl_Category" FromRole="Tbl_Category" ToRole="Tbl_SubTitle_image" />
         </EntityType>
         <EntityType Name="Tbl_Comment">
           <Key>
@@ -569,6 +611,7 @@
           <Property Name="PicName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Tbl_ProductImage" Relationship="Self.FK_Tbl_ProductsPictures_dbo_Tbl_Pictures" FromRole="Tbl_Pictures" ToRole="Tbl_ProductImage" />
           <NavigationProperty Name="Tbl_MainCategory_Image" Relationship="WebStoreDbModel.FK_Tbl_MainCategory_Image_Tbl_Pictures" FromRole="Tbl_Pictures" ToRole="Tbl_MainCategory_Image" />
+          <NavigationProperty Name="Tbl_SubTitle_image" Relationship="WebStoreDbModel.FK_Tbl_SubTitle_image_Tbl_Pictures" FromRole="Tbl_Pictures" ToRole="Tbl_SubTitle_image" />
         </EntityType>
         <EntityType Name="Tbl_Post">
           <Key>
@@ -864,6 +907,15 @@
             <End Role="Tbl_Pictures" EntitySet="Tbl_Pictures" />
             <End Role="Tbl_MainCategory_Image" EntitySet="Tbl_MainCategory_Image" />
           </AssociationSet>
+          <EntitySet Name="Tbl_SubTitle_image" EntityType="WebStoreDbModel.Tbl_SubTitle_image" />
+          <AssociationSet Name="FK_Tbl_SubTitle_image_Tbl_Category" Association="WebStoreDbModel.FK_Tbl_SubTitle_image_Tbl_Category">
+            <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+            <End Role="Tbl_SubTitle_image" EntitySet="Tbl_SubTitle_image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_SubTitle_image_Tbl_Pictures" Association="WebStoreDbModel.FK_Tbl_SubTitle_image_Tbl_Pictures">
+            <End Role="Tbl_Pictures" EntitySet="Tbl_Pictures" />
+            <End Role="Tbl_SubTitle_image" EntitySet="Tbl_SubTitle_image" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="FK_Tbl_Product_Tbl_Guaranty">
           <End Type="WebStoreDbModel.Tbl_Guaranty" Role="Tbl_Guaranty" Multiplicity="1" />
@@ -908,6 +960,40 @@
             </Principal>
             <Dependent Role="Tbl_MainCategory_Image">
               <PropertyRef Name="MainCategoryPic_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tbl_SubTitle_image">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId_FK" Type="Int32" Nullable="false" />
+          <Property Name="CategoryPic_FK" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tbl_Category" Relationship="WebStoreDbModel.FK_Tbl_SubTitle_image_Tbl_Category" FromRole="Tbl_SubTitle_image" ToRole="Tbl_Category" />
+          <NavigationProperty Name="Tbl_Pictures" Relationship="WebStoreDbModel.FK_Tbl_SubTitle_image_Tbl_Pictures" FromRole="Tbl_SubTitle_image" ToRole="Tbl_Pictures" />
+        </EntityType>
+        <Association Name="FK_Tbl_SubTitle_image_Tbl_Category">
+          <End Type="WebStoreDbModel.Tbl_Category" Role="Tbl_Category" Multiplicity="1" />
+          <End Type="WebStoreDbModel.Tbl_SubTitle_image" Role="Tbl_SubTitle_image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Tbl_SubTitle_image">
+              <PropertyRef Name="CategoryId_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_SubTitle_image_Tbl_Pictures">
+          <End Type="WebStoreDbModel.Tbl_Pictures" Role="Tbl_Pictures" Multiplicity="1" />
+          <End Type="WebStoreDbModel.Tbl_SubTitle_image" Role="Tbl_SubTitle_image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Pictures">
+              <PropertyRef Name="PicId" />
+            </Principal>
+            <Dependent Role="Tbl_SubTitle_image">
+              <PropertyRef Name="CategoryPic_FK" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1124,6 +1210,15 @@
               <MappingFragment StoreEntitySet="Tbl_MainCategory_Image">
                 <ScalarProperty Name="MainCategoryPic_FK" ColumnName="MainCategoryPic_FK" />
                 <ScalarProperty Name="MainCategoryID_FK" ColumnName="MainCategoryID_FK" />
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_SubTitle_image">
+            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_SubTitle_image">
+              <MappingFragment StoreEntitySet="Tbl_SubTitle_image">
+                <ScalarProperty Name="CategoryPic_FK" ColumnName="CategoryPic_FK" />
+                <ScalarProperty Name="CategoryId_FK" ColumnName="CategoryId_FK" />
                 <ScalarProperty Name="ImageID" ColumnName="ImageID" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -42,5 +42,6 @@ namespace Test4.Models
         public virtual DbSet<Tbl_SliderImage> Tbl_SliderImage { get; set; }
         public virtual DbSet<Tbl_User> Tbl_User { get; set; }
         public virtual DbSet<Tbl_MainCategory_Image> Tbl_MainCategory_Image { get; set; }
+        public virtual DbSet<Tbl_SubTitle_image> Tbl_SubTitle_image { get; set; }
     }
 }

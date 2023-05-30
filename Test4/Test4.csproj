@@ -197,10 +197,14 @@
     <Compile Include="Models\Tbl_SliderImage.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Tbl_SubTitle_image.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Tbl_User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ViewModels\VM_NavLink.cs" />
+    <Compile Include="Models\ViewModels\VM_MainTitle_SubTtiles.cs" />
+    <Compile Include="Models\ViewModels\VM_MainTitle_Icon.cs" />
     <Compile Include="Models\ViewModels\VM_Products_Pics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -275,13 +279,23 @@
     <Content Include="images\footer\license\L-2.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\logo.png" />
+    <Content Include="images\mainNav-icon\Appliances.png" />
+    <Content Include="images\mainNav-icon\book.png" />
+    <Content Include="images\mainNav-icon\camera.png" />
+    <Content Include="images\mainNav-icon\childClothes.png" />
     <Content Include="images\mainNav-icon\clothes.png" />
     <Content Include="images\mainNav-icon\contactUs.png" />
     <Content Include="images\mainNav-icon\cosmetic.png" />
     <Content Include="images\mainNav-icon\digitalProducts.png" />
+    <Content Include="images\mainNav-icon\labtop3.png" />
+    <Content Include="images\mainNav-icon\manClothes.png" />
+    <Content Include="images\mainNav-icon\mobile.png" />
+    <Content Include="images\mainNav-icon\cosmeticProducts.png" />
     <Content Include="images\mainNav-icon\questions.png" />
+    <Content Include="images\mainNav-icon\sanitary.png" />
     <Content Include="images\mainNav-icon\seller.png" />
     <Content Include="images\mainNav-icon\stationery.png" />
+    <Content Include="images\mainNav-icon\womenClothes.png" />
     <Content Include="images\man.png" />
     <Content Include="images\menu-main\category\child.png" />
     <Content Include="images\menu-main\category\cup.png" />
@@ -493,6 +507,7 @@
     <Content Include="Views\Shared\Header_UserBasket.cshtml" />
     <Content Include="Views\Home\ProductBrandCategory.cshtml" />
     <Content Include="Views\Home\ProductDetails.cshtml" />
+    <Content Include="Views\Home\MainCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

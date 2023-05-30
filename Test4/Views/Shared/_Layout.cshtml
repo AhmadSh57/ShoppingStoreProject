@@ -9,7 +9,7 @@
     <title>فروشگاه اینترنتی کالا مارکت</title>
 </head>
 <body>
-    @using Test4.Models;
+    @using Test4.Models
 
     <!-- Header Main Nav-------------------------------->
     @Html.Partial("Header_MainNav")
@@ -27,6 +27,9 @@
     <!--Header_MainSlider---------------------------------------->
     @RenderSection("Header_MainSlider", required: false)
 
+    <!--Main Category-->
+    @RenderSection("MainCategory",required:false)
+
     <!--Best Selling Products -->
     @RenderSection("BestSellingProducts", required: false)
 
@@ -38,7 +41,7 @@
 
     @RenderBody()
 
-    @RenderSection("scripts", required: false);
+    @RenderSection("scripts", required: false)
     <!-- footer---------------------------------------->
     <footer class="footer-main-site">
         <section class="d-block d-xl-block d-lg-block d-md-block d-sm-block order-1">

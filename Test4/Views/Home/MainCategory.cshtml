@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Test4.Models.ViewModels.VM_MainTitle_SubTtiles>
+
+@using Test4.Models
+@using Test4.Models.ViewModels;
+@using Test4.Models.Repository;
+
+@{
+    string MainTitle = "";
+    foreach (var item in Model)
+    {
+        MainTitle = item.MainTitleName;
+    }
+}
+
+@section MainCategory{
+
+    <div class="container col-12 ">
+        <aside class="main-row-bg d-block d-md-block ">
+            <div class="bg-cover " style="border-radius :20px"></div>
+            <div class="container-main">
+                <div class="d-block">
+                    <section class="content-title section-title mt-5">
+                        <div class="align-items-center">
+                            <div class="col-auto">
+                                <div class="title">
+                                    <h2></h2>
+                                </div>
+                                <div class="subtitle">
+                                    <h4 class="text-white">@MainTitle</h4>
+                                    <span>با کیفیت ترین محصولات در دسترس شماست</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    @foreach (var item in Model)
+                    {
+
+                        <div class="mb-3">
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-12 pt-4 pr">
+                                <div class="card-product-horizontal">
+                                    <div class="card-product-horizontal-img">
+                                        <a href="#" class="d-block">
+                                            <img src="~/images/mainNav-icon/@item.SubCategoryImage" style="width:100px;height:100px">
+                                        </a>
+                                    </div>
+                                    <div class="card-product-horizontal-content">
+                                        <div class="card-product-horizontal-content-title">
+                                            <a href="#">
+                                                <h3>@item.SubCategoryName</h3>
+                                            </a>
+                                        </div>
+                                        <div class="card-product-horizontal-content-price">
+                                            <span class="amount">
+                                                @*@item.ProductPrice*@
+                                                <span>این توضیحات برای ازمایش میباشد</span>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                </div>
+            </div>
+        </aside>
+
+    </div>
+}

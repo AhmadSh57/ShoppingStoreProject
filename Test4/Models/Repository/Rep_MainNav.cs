@@ -10,7 +10,7 @@ namespace Test4.Models.Repository
     public class Rep_MainNav
     {
         WebStoreDbEntities3 DataBase = new WebStoreDbEntities3();
-        public List<VM_NavLink> Rep_GetMainTitleIconName()
+        public List<VM_MainTitle_Icon> Rep_GetMainTitleIconName()
         {
             var Query = (
 
@@ -25,12 +25,47 @@ namespace Test4.Models.Repository
                 Pic in DataBase.Tbl_Pictures
                 on MainTitleImage.MainCategoryPic_FK equals Pic.PicId
 
-                select new VM_NavLink { NavLinkId = MainTitle.CategoryID,NavIconName = Pic.PicName }
+                select new VM_MainTitle_Icon { NavLinkId = MainTitle.CategoryID, NavIconName = Pic.PicName }
                          );
 
 
             return Query.ToList();
 
         }
+
+        public List<VM_MainTitle_SubTtiles> GetSubCategoryForMainTitle(int CategoryId)
+        {
+            var Query = (
+                from Category in DataBase.Tbl_Category
+
+                join
+
+                SubCategory in DataBase.Tbl_Category
+
+                on Category.CategoryID equals SubCategory.ParentID
+
+                join
+
+                 SubCategoryImage in DataBase.Tbl_SubTitle_image
+
+                 on SubCategory.CategoryID equals SubCategoryImage.CategoryId_FK
+
+                join
+
+               Pic in DataBase.Tbl_Pictures
+
+               on SubCategoryImage.CategoryPic_FK equals Pic.PicId
+
+                where Category.CategoryID == CategoryId
+
+
+                select new VM_MainTitle_SubTtiles { SubCategoryId = SubCategory.CategoryID, SubCategoryName = SubCategory.CategoryTitle,MainTitleName = Category.CategoryTitle, MainTitleId = Category.CategoryID, SubCategoryImage = Pic.PicName }
+
+                );
+
+            return Query.ToList();
+        }
+
+
     }
 }

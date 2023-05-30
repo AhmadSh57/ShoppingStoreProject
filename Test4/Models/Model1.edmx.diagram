@@ -36,6 +36,9 @@
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_MainCategory_Image" Width="1.5" PointX="11.375" PointY="4.75" />
         <AssociationConnector Association="WebStoreDbModel.FK_Tbl_MainCategory_Image_Tbl_Category" />
         <AssociationConnector Association="WebStoreDbModel.FK_Tbl_MainCategory_Image_Tbl_Pictures" />
+        <EntityTypeShape EntityType="WebStoreDbModel.Tbl_SubTitle_image" Width="1.5" PointX="9" PointY="12.5" />
+        <AssociationConnector Association="WebStoreDbModel.FK_Tbl_SubTitle_image_Tbl_Category" />
+        <AssociationConnector Association="WebStoreDbModel.FK_Tbl_SubTitle_image_Tbl_Pictures" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

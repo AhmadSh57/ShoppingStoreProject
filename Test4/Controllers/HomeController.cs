@@ -13,6 +13,7 @@ namespace Test4.Controllers
         WebStoreDbEntities3 DataBase = new WebStoreDbEntities3();
 
         Rep_Products _Rep_Products = new Rep_Products();
+        Rep_MainNav Rep_MainNav = new Rep_MainNav();
 
 
         /*Main Page*/
@@ -34,11 +35,10 @@ namespace Test4.Controllers
         }
 
 
-
-
-
-
-
+        public ActionResult MainCategory(int CategoryId)
+        {
+            return View(Rep_MainNav.GetSubCategoryForMainTitle(CategoryId));
+        }
 
         public ActionResult About()
         {
