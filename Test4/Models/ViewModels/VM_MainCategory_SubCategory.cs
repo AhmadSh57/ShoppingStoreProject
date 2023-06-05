@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Test4.Models.ViewModels
 {
-    public class VM_MainTitle_SubTtiles
+    public class VM_MainCategory_SubCategory
     {
         public int MainTitleId { get; set; }
         public string MainTitleName { get; set;}

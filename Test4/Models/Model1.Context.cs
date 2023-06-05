@@ -13,10 +13,10 @@ namespace Test4.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WebStoreDbEntities3 : DbContext
+    public partial class WebStoreDbEntities5 : DbContext
     {
-        public WebStoreDbEntities3()
-            : base("name=WebStoreDbEntities3")
+        public WebStoreDbEntities5()
+            : base("name=WebStoreDbEntities5")
         {
         }
     
@@ -30,9 +30,14 @@ namespace Test4.Models
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tbl_Category> Tbl_Category { get; set; }
         public virtual DbSet<Tbl_Comment> Tbl_Comment { get; set; }
+        public virtual DbSet<Tbl_ContactUs> Tbl_ContactUs { get; set; }
+        public virtual DbSet<Tbl_Employee> Tbl_Employee { get; set; }
         public virtual DbSet<Tbl_Guaranty> Tbl_Guaranty { get; set; }
         public virtual DbSet<Tbl_InstantOffer> Tbl_InstantOffer { get; set; }
+        public virtual DbSet<Tbl_MainCategory_Image> Tbl_MainCategory_Image { get; set; }
         public virtual DbSet<Tbl_Menu> Tbl_Menu { get; set; }
+        public virtual DbSet<Tbl_MessageSituation_ContactUs> Tbl_MessageSituation_ContactUs { get; set; }
+        public virtual DbSet<Tbl_MessageTitle_ContactUs> Tbl_MessageTitle_ContactUs { get; set; }
         public virtual DbSet<Tbl_Order> Tbl_Order { get; set; }
         public virtual DbSet<Tbl_Pictures> Tbl_Pictures { get; set; }
         public virtual DbSet<Tbl_Post> Tbl_Post { get; set; }
@@ -40,8 +45,7 @@ namespace Test4.Models
         public virtual DbSet<Tbl_ProductImage> Tbl_ProductImage { get; set; }
         public virtual DbSet<Tbl_Prouducts_Categories> Tbl_Prouducts_Categories { get; set; }
         public virtual DbSet<Tbl_SliderImage> Tbl_SliderImage { get; set; }
-        public virtual DbSet<Tbl_User> Tbl_User { get; set; }
-        public virtual DbSet<Tbl_MainCategory_Image> Tbl_MainCategory_Image { get; set; }
         public virtual DbSet<Tbl_SubTitle_image> Tbl_SubTitle_image { get; set; }
+        public virtual DbSet<Tbl_User> Tbl_User { get; set; }
     }
 }

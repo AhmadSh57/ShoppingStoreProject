@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Test4.Models.ViewModels.VM_SubCategory_ProductsBrands>
+
+@{
+    ViewBag.Title = "SubCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-12">
+    <div class="d-flex flex-row justify-content-center">
+        @foreach (var item in Model)
+
+
+        {
+            <div class="card text-center mb-3 border" style="width: 18rem; margin:.5rem">
+                <div class="card-body">
+                    <h5 class="card-title">@item.BrandName</h5>
+                    @*<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>*@
+
+                    @Html.ActionLink("مشاهده", "ProductBrandCategory", new { ProductBrandCategoryId = item.BrandId }, new { @class = "btn btn-primary" })
+
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

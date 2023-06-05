@@ -10,7 +10,7 @@ namespace Test4.Controllers
 {
     public class HomeController : Controller
     {
-        WebStoreDbEntities3 DataBase = new WebStoreDbEntities3();
+        WebStoreDbEntities5 DataBase = new WebStoreDbEntities5();
 
         Rep_Products _Rep_Products = new Rep_Products();
         Rep_MainNav Rep_MainNav = new Rep_MainNav();
@@ -38,6 +38,11 @@ namespace Test4.Controllers
         public ActionResult MainCategory(int CategoryId)
         {
             return View(Rep_MainNav.GetSubCategoryForMainTitle(CategoryId));
+        }
+
+        public ActionResult SubCategory(int CategoryId)
+        {
+            return View(Rep_MainNav.GetBrandNameForSubCategory(CategoryId));
         }
 
         public ActionResult About()

@@ -92,12 +92,14 @@
                     </div>
                 </div>
             </section>
+            <link rel="stylesheet" media="screen and (max-width:1300px)" href="~/assets/css/NavIcon.css" />
+
             <nav class="header-main-nav">
                 <div class="d-block">
                     <div class="align-items-center">
                         <ul class="menu-ul mega-menu-level-one">
                             @{
-                                WebStoreDbEntities3 DataBase = new WebStoreDbEntities3();
+                                WebStoreDbEntities5 DataBase = new WebStoreDbEntities5();
 
                                 Rep_MainNav Rep_MainTitle = new Rep_MainNav();
 
@@ -111,7 +113,7 @@
                                     {
                                         if (MainTitle.CategoryID == Pic.NavLinkId)
                                         {
-                                            <img src="~/images/mainNav-icon/@Pic.NavIconName" style="width :35px ; height:35px" />
+                                            <img src="~/images/mainNav-icon/@Pic.NavIconName" style="width :35px ; height:35px" class="CategoryIcon d-none d-xl-inline-block" />
 
                                         }
                                     }
@@ -129,7 +131,7 @@
                                                 {
                                                     <li class="menu-mega-item menu-item-type-mega-menu">
                                                         @*Show Sub Title In Nav*@
-                                                        @Html.ActionLink(SubTitle.CategoryTitle, "SubQuery", new { CatId = SubTitle.CategoryID, CatName = SubTitle.CategoryTitle, MainCat = MainTitle.CategoryTitle }, new { @class = "mega-menu-link" })
+                                                        @Html.ActionLink(SubTitle.CategoryTitle, "SubCategory", new { CategoryId = SubTitle.CategoryID }, new { @class = "mega-menu-link" })
                                                         @{
                                                             IQueryable<Tbl_Category> QProductBrand = DataBase.Tbl_Category.Where(B => B.ParentID == SubTitle.CategoryID);
                                                             foreach (var ProductBrand in QProductBrand)
@@ -150,8 +152,8 @@
 
 
                                         @*<li class="bg-image">
-                        <img src="/images/menu-main/digital.png" alt="">
-                    </li>*@
+                                        <img src="/images/menu-main/digital.png" alt="">
+                                    </li>*@
                                     </li>
                                 }
                             }
@@ -167,7 +169,7 @@
                             <li id="nav-menu-item" class="menu-item">
                                 <img src="~/images/mainNav-icon/seller.png" style="height:35px ; width:35px" />
                                 <a href="/Home/ContactUs" class="current-link-menu">
-                                 فروشنده شو
+                                    فروشنده شو
                                 </a>
                             </li>
                             <!--Basket-->

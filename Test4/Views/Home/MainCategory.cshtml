@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Test4.Models.ViewModels.VM_MainTitle_SubTtiles>
+﻿@model IEnumerable<Test4.Models.ViewModels.VM_MainCategory_SubCategory>
 
 @using Test4.Models
 @using Test4.Models.ViewModels;
@@ -27,6 +27,7 @@
                                 </div>
                                 <div class="subtitle">
                                     <h4 class="text-white">@MainTitle</h4>
+
                                     <span>با کیفیت ترین محصولات در دسترس شماست</span>
                                 </div>
                             </div>
@@ -52,6 +53,8 @@
                                         <div class="card-product-horizontal-content-price">
                                             <span class="amount">
                                                 @*@item.ProductPrice*@
+                                                @Html.ActionLink(item.SubCategoryName, "SubCategory", new { CategoryId = item.SubCategoryId }, new { @class = "mega-menu-link" })
+
                                                 <span>این توضیحات برای ازمایش میباشد</span>
                                             </span>
                                         </div>

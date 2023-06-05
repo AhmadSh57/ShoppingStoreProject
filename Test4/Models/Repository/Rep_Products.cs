@@ -9,7 +9,7 @@ namespace Test4.Models.Repository
 {
     public class Rep_Products
     {
-        WebStoreDbEntities3 DataBase = new WebStoreDbEntities3();
+        WebStoreDbEntities5 DataBase = new WebStoreDbEntities5();
 
         public List<VM_Products_Pics> ProductByBrandCategory(int ProductBrandCategoryId)
         {
