@@ -9970,3 +9970,7 @@ body.light .progress-wrap::after {
 body.light .progress-wrap svg.progress-circle path {
     stroke: var(--black-blue);
 }
+
+CaptchaInputText{
+    border:1px solid red !important;
+}

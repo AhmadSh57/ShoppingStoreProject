@@ -17,6 +17,8 @@
     <!--BreadCrumb-->
     @RenderSection("BreadCrumb", required: false)
 
+    <!--Products Filters-->
+    @RenderSection("ProductsFilter",required:false)
 
     <!--Products Category By Brand Category-->
     @RenderSection("ProductByBrandSlider", required: false)
@@ -35,6 +37,9 @@
 
     <!--New Products Slider----------------------------->
     @RenderSection("NewProductsSlider", required: false)
+
+    <!--Most Pupular Products Slider-->
+    @RenderSection("MostPupularProductsSlider", required:false)
 
     <!--Special Products Slider------------------------->
     @RenderSection("SpecialProductsSlider", required: false)
@@ -192,6 +197,8 @@
                                         </section>
                                     </div>
                                 </div>
+                                @Html.Partial("OurWebsites", "Home");
+
                             </div>
                         </div>
                         <div class="col-lg-4 d-block pl">
@@ -215,7 +222,7 @@
                             <div class="col-lg-10 pr">
                                 <div class="footer-assets d-block">
                                     <div class="text pr-1">
-                                        <h2 class="title">فروشگاه اینترنتی دیجی اسمارت</h2>
+                                        <h4 class="title">فروشگاه اینترنتی دیجی اسمارت</h4>
                                         <p class="desc">
                                             دیجی اسمارت به عنوان یکی از قدیمی‌ترین فروشگاه های اینترنتی
                                             با بیش از یک دهه تجربه، با پایبندی به سه اصل کلیدی، پرداخت در محل، 7 روز

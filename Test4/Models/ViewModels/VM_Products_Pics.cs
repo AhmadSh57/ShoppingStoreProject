@@ -12,8 +12,11 @@ namespace Test4.Models.ViewModels
         public string PicName { get; set; }
         public string ProductMainTitle { get; set; }
         public string ProductSubTitle { get; set; }
+        public int ProductSubTitleId { get; set; }
         public decimal ProductPrice { get; set; }
         public decimal  ProductOff { get; set;}
         public long Sales { get; set; }
+        public double Like { get; set; }
+       public int Discount { get; set; }
     }
 }

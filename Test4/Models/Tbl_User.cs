@@ -25,7 +25,7 @@ namespace Test4.Models
         public string Password { get; set; }
         public string Email { get; set; }
         public string FullName { get; set; }
-        public System.DateTime Birthdate { get; set; }
+        public string Birthdate { get; set; }
         public string Mobile { get; set; }
         public string TellPhone { get; set; }
         public string Province { get; set; }
@@ -33,8 +33,8 @@ namespace Test4.Models
         public string Address { get; set; }
         public string PostalCode { get; set; }
         public string UserPic { get; set; }
-        public System.DateTime RegisterDate { get; set; }
-        public bool Gender { get; set; }
+        public string RegisterDate { get; set; }
+        public Nullable<bool> Gender { get; set; }
         public string AccessLevelName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

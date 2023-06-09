@@ -45,7 +45,7 @@ namespace Test4.Models.Repository
 
                 where ProductBrandCategory.CatID_FK == ProductBrandCategoryId
 
-                select new VM_Products_Pics { ProductId = Product.ProductID, PicName = Picture.PicName, ProductName = Product.ProductTitle, ProductPrice = Product.Price, ProductOff = Product.Product_Off, ProductSubTitle = Category.CategoryTitle, ProductMainTitle = MainCategory.CategoryTitle }
+                select new VM_Products_Pics { ProductId = Product.ProductID, PicName = Picture.PicName, ProductName = Product.ProductTitle, ProductPrice = Product.Price, ProductOff = Product.Product_Off, ProductSubTitle = Category.CategoryTitle, ProductMainTitle = MainCategory.CategoryTitle ,ProductSubTitleId = ProductBrandCategory.CatID_FK }
                                );
 
             return QGetProduct.ToList();
@@ -148,7 +148,7 @@ namespace Test4.Models.Repository
                                     on ProductPic.PicID_FK equals Pic.PicId
 
                                     orderby Product.Sales descending
-                                    select new VM_Products_Pics { ProductId = Product.ProductID, ProductName = Product.ProductTitle, PicName = Pic.PicName ,ProductPrice = Product.Price,ProductOff = Product.Product_Off , Sales = Product.Sales}).Take(DisplayProductCount);
+                                    select new VM_Products_Pics { ProductId = Product.ProductID, ProductName = Product.ProductTitle, PicName = Pic.PicName, ProductPrice = Product.Price, ProductOff = Product.Product_Off, Sales = Product.Sales }).Take(DisplayProductCount);
             return QueryBestSelling.ToList();
 
         }
@@ -187,6 +187,32 @@ namespace Test4.Models.Repository
             return QProductDetails.ToList();
         }
 
+        /*Most Popular Products Slider*/
+
+        public List<VM_Products_Pics> GetMostPopularProducts(int DisplayCount)
+        {
+            var Query = (
+                from Product in DataBase.Tbl_Product
+
+                join
+
+                Image in DataBase.Tbl_ProductImage
+
+                on Product.ProductID equals Image.ProductID_FK
+
+                join
+
+                Pic in DataBase.Tbl_Pictures
+
+                on Image.PicID_FK equals Pic.PicId
+
+                orderby (Product.Product_Like - Product.Product_Dislike) descending
+
+                select new VM_Products_Pics { ProductId = Product.ProductID, ProductName = Product.ProductTitle, PicName = Pic.PicName, ProductOff = Product.Product_Off, ProductPrice = Product.Price,Sales = Product.Sales ,Like = Product.Product_Like}
+
+                ).Take(DisplayCount);
+            return Query.ToList();
+        }
 
     }
 }

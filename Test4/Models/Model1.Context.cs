@@ -35,9 +35,7 @@ namespace Test4.Models
         public virtual DbSet<Tbl_Guaranty> Tbl_Guaranty { get; set; }
         public virtual DbSet<Tbl_InstantOffer> Tbl_InstantOffer { get; set; }
         public virtual DbSet<Tbl_MainCategory_Image> Tbl_MainCategory_Image { get; set; }
-        public virtual DbSet<Tbl_Menu> Tbl_Menu { get; set; }
         public virtual DbSet<Tbl_MessageSituation_ContactUs> Tbl_MessageSituation_ContactUs { get; set; }
-        public virtual DbSet<Tbl_MessageTitle_ContactUs> Tbl_MessageTitle_ContactUs { get; set; }
         public virtual DbSet<Tbl_Order> Tbl_Order { get; set; }
         public virtual DbSet<Tbl_Pictures> Tbl_Pictures { get; set; }
         public virtual DbSet<Tbl_Post> Tbl_Post { get; set; }
@@ -47,5 +45,7 @@ namespace Test4.Models
         public virtual DbSet<Tbl_SliderImage> Tbl_SliderImage { get; set; }
         public virtual DbSet<Tbl_SubTitle_image> Tbl_SubTitle_image { get; set; }
         public virtual DbSet<Tbl_User> Tbl_User { get; set; }
+        public virtual DbSet<Tbl_OurWebsites> Tbl_OurWebsites { get; set; }
+        public virtual DbSet<Tbl_UserTest> Tbl_UserTest { get; set; }
     }
 }

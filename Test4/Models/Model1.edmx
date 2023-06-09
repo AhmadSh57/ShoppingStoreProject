@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WebStoreDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WebStoreDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ShoppingCart">
           <Key>
             <PropertyRef Name="ID" />
@@ -122,28 +122,12 @@
           <Property Name="MainCategoryID_FK" Type="int" />
           <Property Name="MainCategoryPic_FK" Type="int" />
         </EntityType>
-        <EntityType Name="Tbl_Menu">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Link" Type="nvarchar" MaxLength="200" Nullable="false" />
-          <Property Name="Sort" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="Tbl_MessageSituation_ContactUs">
           <Key>
             <PropertyRef Name="MessageSituationID" />
           </Key>
           <Property Name="MessageSituationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MessageSituationTitle" Type="nvarchar" MaxLength="100" />
-        </EntityType>
-        <EntityType Name="Tbl_MessageTitle_ContactUs">
-          <Key>
-            <PropertyRef Name="MessageTitleId" />
-          </Key>
-          <Property Name="MessageTitleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MessageTitle" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="Tbl_Order">
           <Key>
@@ -156,6 +140,15 @@
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="OrderStatus" Type="int" Nullable="false" />
           <Property Name="PostID_FK" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_OurWebsites">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Link" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Sort" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Tbl_Pictures">
           <Key>
@@ -232,21 +225,29 @@
             <PropertyRef Name="UserID" />
           </Key>
           <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Birthdate" Type="date" Nullable="false" />
-          <Property Name="Mobile" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="TellPhone" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Province" Type="nvarchar" MaxLength="80" Nullable="false" />
-          <Property Name="City" Type="nvarchar" MaxLength="80" Nullable="false" />
-          <Property Name="Address" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="PostalCode" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="UserPic" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="RegisterDate" Type="datetime" Nullable="false" />
-          <Property Name="Gender" Type="bit" Nullable="false" />
-          <Property Name="AccessLevelName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Birthdate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="20" />
+          <Property Name="TellPhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="Province" Type="nvarchar" MaxLength="80" />
+          <Property Name="City" Type="nvarchar" MaxLength="80" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="UserPic" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegisterDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="bit" />
+          <Property Name="AccessLevelName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_UserTest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_ShoppingCart_Tbl_Product">
           <End Role="Tbl_Product" Type="Self.Tbl_Product" Multiplicity="1" />
@@ -451,10 +452,9 @@
           <EntitySet Name="Tbl_Guaranty" EntityType="Self.Tbl_Guaranty" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_InstantOffer" EntityType="Self.Tbl_InstantOffer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_MainCategory_Image" EntityType="Self.Tbl_MainCategory_Image" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Tbl_Menu" EntityType="Self.Tbl_Menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_MessageSituation_ContactUs" EntityType="Self.Tbl_MessageSituation_ContactUs" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Tbl_MessageTitle_ContactUs" EntityType="Self.Tbl_MessageTitle_ContactUs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Order" EntityType="Self.Tbl_Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_OurWebsites" EntityType="Self.Tbl_OurWebsites" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Pictures" EntityType="Self.Tbl_Pictures" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Post" EntityType="Self.Tbl_Post" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Product" EntityType="Self.Tbl_Product" Schema="dbo" store:Type="Tables" />
@@ -463,6 +463,7 @@
           <EntitySet Name="Tbl_SliderImage" EntityType="Self.Tbl_SliderImage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_SubTitle_image" EntityType="Self.Tbl_SubTitle_image" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_User" EntityType="Self.Tbl_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_UserTest" EntityType="Self.Tbl_UserTest" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ShoppingCart_Tbl_Product" Association="Self.FK_ShoppingCart_Tbl_Product">
             <End Role="Tbl_Product" EntitySet="Tbl_Product" />
             <End Role="ShoppingCart" EntitySet="ShoppingCart" />
@@ -528,8 +529,7 @@
             <End Role="Tbl_SubTitle_image" EntitySet="Tbl_SubTitle_image" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WebStoreDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -662,28 +662,12 @@
           <NavigationProperty Name="Tbl_Category" Relationship="Self.FK_Tbl_MainCategory_Image_Tbl_Category" FromRole="Tbl_MainCategory_Image" ToRole="Tbl_Category" />
           <NavigationProperty Name="Tbl_Pictures" Relationship="Self.FK_Tbl_MainCategory_Image_Tbl_Pictures" FromRole="Tbl_MainCategory_Image" ToRole="Tbl_Pictures" />
         </EntityType>
-        <EntityType Name="Tbl_Menu">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Link" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Sort" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="Tbl_MessageSituation_ContactUs">
           <Key>
             <PropertyRef Name="MessageSituationID" />
           </Key>
           <Property Name="MessageSituationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MessageSituationTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Tbl_MessageTitle_ContactUs">
-          <Key>
-            <PropertyRef Name="MessageTitleId" />
-          </Key>
-          <Property Name="MessageTitleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MessageTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Tbl_Order">
           <Key>
@@ -791,21 +775,21 @@
             <PropertyRef Name="UserID" />
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Birthdate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TellPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Province" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="City" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PostalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserPic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Gender" Type="Boolean" Nullable="false" />
-          <Property Name="AccessLevelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Birthdate" Type="String" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TellPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UserPic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterDate" Type="String" />
+          <Property Name="Gender" Type="Boolean" />
+          <Property Name="AccessLevelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Tbl_Order" Relationship="Self.FK_Tbl_Order_Tbl_User" FromRole="Tbl_User" ToRole="Tbl_Order" />
         </EntityType>
         <Association Name="FK_ShoppingCart_Tbl_Product">
@@ -1011,9 +995,7 @@
           <EntitySet Name="Tbl_Guaranty" EntityType="Self.Tbl_Guaranty" />
           <EntitySet Name="Tbl_InstantOffer" EntityType="Self.Tbl_InstantOffer" />
           <EntitySet Name="Tbl_MainCategory_Image" EntityType="Self.Tbl_MainCategory_Image" />
-          <EntitySet Name="Tbl_Menu" EntityType="Self.Tbl_Menu" />
           <EntitySet Name="Tbl_MessageSituation_ContactUs" EntityType="Self.Tbl_MessageSituation_ContactUs" />
-          <EntitySet Name="Tbl_MessageTitle_ContactUs" EntityType="Self.Tbl_MessageTitle_ContactUs" />
           <EntitySet Name="Tbl_Order" EntityType="Self.Tbl_Order" />
           <EntitySet Name="Tbl_Pictures" EntityType="Self.Tbl_Pictures" />
           <EntitySet Name="Tbl_Post" EntityType="Self.Tbl_Post" />
@@ -1087,8 +1069,27 @@
             <End Role="Tbl_Product" EntitySet="Tbl_Product" />
             <End Role="Tbl_ProductImage" EntitySet="Tbl_ProductImage" />
           </AssociationSet>
-        </EntityContainer>
-      </Schema>
+          <EntitySet Name="Tbl_OurWebsites" EntityType="WebStoreDbModel.Tbl_OurWebsites" />
+          <EntitySet Name="Tbl_UserTest" EntityType="WebStoreDbModel.Tbl_UserTest" />
+          </EntityContainer>
+        <EntityType Name="Tbl_OurWebsites">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_UserTest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1221,29 +1222,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Tbl_Menu">
-            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_Menu">
-              <MappingFragment StoreEntitySet="Tbl_Menu">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Link" ColumnName="Link" />
-                <ScalarProperty Name="Sort" ColumnName="Sort" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Tbl_MessageSituation_ContactUs">
             <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_MessageSituation_ContactUs">
               <MappingFragment StoreEntitySet="Tbl_MessageSituation_ContactUs">
                 <ScalarProperty Name="MessageSituationID" ColumnName="MessageSituationID" />
                 <ScalarProperty Name="MessageSituationTitle" ColumnName="MessageSituationTitle" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tbl_MessageTitle_ContactUs">
-            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_MessageTitle_ContactUs">
-              <MappingFragment StoreEntitySet="Tbl_MessageTitle_ContactUs">
-                <ScalarProperty Name="MessageTitleId" ColumnName="MessageTitleId" />
-                <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1359,7 +1342,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="Tbl_OurWebsites">
+            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_OurWebsites">
+              <MappingFragment StoreEntitySet="Tbl_OurWebsites">
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_UserTest">
+            <EntityTypeMapping TypeName="WebStoreDbModel.Tbl_UserTest">
+              <MappingFragment StoreEntitySet="Tbl_UserTest">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

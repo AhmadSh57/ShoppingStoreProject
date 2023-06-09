@@ -1,0 +1,29 @@
+﻿@{
+    Test4.Models.Repository.Rep_WebLink _Rep_GetLink = new Test4.Models.Repository.Rep_WebLink();
+}
+
+
+<div class="col-lg-3 col-md-3 col-xs-12 pr">
+    <div class="row">
+        <section class="footer-links-col">
+            <div class="headline-links">
+                <a href="#">
+                    دیگر وبسایت های ما
+                </a>
+            </div>
+            <ul class="footer-menu-ul">
+                @foreach (var item in _Rep_GetLink.GetLinks())
+                {
+                    <li class="menu-item-type-custom">
+                        <a href="@item.Link">
+                            @item.Title
+                        </a>
+                    </li>
+                }
+
+
+            </ul>
+        </section>
+    </div>
+</div>
+

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Test4.MetaData
+namespace Test4.Models
 {
     internal class ContactUs_MetaData
     {
@@ -23,20 +23,26 @@ namespace Test4.MetaData
 
         public string UserEmail { get; set; }
 
-        [Required(AllowEmptyStrings =false,ErrorMessage ="لطفا {0} خود را وارد کنید")]
-        [StringLength(11,MinimumLength =11,ErrorMessage ="  {0}را صحیح وارد نمایید ")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "لطفا {0} خود را وارد کنید")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "  {0}را صحیح وارد نمایید ")]
         [DisplayName("شماره موبایل")]
-        [RegularExpression(@"(\+98|0)?9\d{9}",ErrorMessage ="لطفا شماره موبایل خود را صحیح وارد نمایید")]
-        public string Mobile { get; set; }
+        [RegularExpression(@"(\+98|0)?9\d{9}", ErrorMessage = "لطفا {0} خود را صحیح وارد نمایید")]
+        public string Mobile { get; set; } 
 
-        [Required(AllowEmptyStrings =false,ErrorMessage ="لطفا {0} خود را وارد کنید")]
-        [StringLength(500,ErrorMessage ="متن شما میتواند حداکثر 500 کاراکتر داشته باشد")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "لطفا {0} خود را وارد کنید")]
+        [StringLength(500, ErrorMessage = "متن شما میتواند حداکثر 500 کاراکتر داشته باشد")]
         [DisplayName("پیام")]
         [DataType(DataType.MultilineText)]
-        public string Message { get; set; }
+        public string Message { get; set; } 
 
+   
 
     }
 
-   
-}
+    [MetadataType(typeof(ContactUs_MetaData))]
+    public partial class Tbl_ContactUs
+    {
+        
+    }
+
+    }

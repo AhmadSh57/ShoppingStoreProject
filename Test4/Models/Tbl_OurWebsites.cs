@@ -12,9 +12,11 @@ namespace Test4.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_MessageTitle_ContactUs
+    public partial class Tbl_OurWebsites
     {
-        public int MessageTitleId { get; set; }
-        public string MessageTitle { get; set; }
+        public int ID { get; set; }
+        public string Title { get; set; }
+        public string Link { get; set; }
+        public int Sort { get; set; }
     }
 }

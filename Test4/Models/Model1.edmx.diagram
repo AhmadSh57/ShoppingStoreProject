@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="67dc1b49ed09412897ba3e27b80a599e" Name="Diagram1">
+      <Diagram DiagramId="67dc1b49ed09412897ba3e27b80a599e" Name="Diagram1" ZoomLevel="92">
         <EntityTypeShape EntityType="WebStoreDbModel.ShoppingCart" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.SiteSetting" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="2.25" IsExpanded="true" />
@@ -15,9 +15,7 @@
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Guaranty" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_InstantOffer" Width="1.5" PointX="10.75" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_MainCategory_Image" Width="1.5" PointX="11.25" PointY="13.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Menu" Width="1.5" PointX="12.75" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_MessageSituation_ContactUs" Width="1.5" PointX="2.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebStoreDbModel.Tbl_MessageTitle_ContactUs" Width="1.5" PointX="12.75" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Order" Width="1.5" PointX="8.25" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Pictures" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="WebStoreDbModel.Tbl_Post" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
@@ -43,7 +41,9 @@
         <AssociationConnector Association="WebStoreDbModel.FK_Tbl_SubTitle_image_Tbl_Pictures" ManuallyRouted="false" />
         <AssociationConnector Association="WebStoreDbModel.FK_Tbl_Category_Products_Tbl_Product" ManuallyRouted="false" />
         <AssociationConnector Association="WebStoreDbModel.FK_Tbl_ProductsPictures_Tbl_Products" ManuallyRouted="false" />
-      </Diagram>
+        <EntityTypeShape EntityType="WebStoreDbModel.Tbl_OurWebsites" Width="2.375" PointX="13.5" PointY="4.75" />
+        <EntityTypeShape EntityType="WebStoreDbModel.Tbl_UserTest" Width="1.5" PointX="13.375" PointY="0.75" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
